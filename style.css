@@ -7,13 +7,112 @@ body {
   padding: 60px 24px;
 }
 
+a {
+  color: #e8e8e8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 72px;
+}
+
+.site-name {
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: #aaaaaa;
+}
+
+nav a {
+  color: #aaaaaa;
+}
+
+nav a:hover {
+  color: #e8e8e8;
+  text-decoration: none;
+}
+
+/* Sections */
+
+section {
+  margin-bottom: 72px;
+}
+
 h1 {
   font-size: 28px;
   font-weight: normal;
-  margin-bottom: 8px;
+  margin: 0 0 24px;
+}
+
+h2 {
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin: 0 0 24px;
 }
 
 p {
   line-height: 1.8;
   color: #aaaaaa;
+  margin: 0 0 16px;
+}
+
+/* Post list */
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.post-list li:first-child {
+  border-top: 1px solid #2e2e2e;
+}
+
+.post-date {
+  font-size: 13px;
+  color: #666666;
+  white-space: nowrap;
+  font-family: 'Courier New', monospace;
+}
+
+.post-list a {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 120px;
+  font-size: 13px;
+  color: #444444;
+}
+
+footer p {
+  color: #444444;
 }
