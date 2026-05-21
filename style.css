@@ -118,10 +118,10 @@ nav a.active {
 
 /* ─── Section pages (Writing, Projects) ─────────────────────────────────── */
 
-/* Widen the layout on section pages to make room for the sidebar.
+/* Widen the layout on section pages to make room for both sidebars.
    Applied via class="section-page" on <body>. */
 body.section-page {
-  max-width: 900px;
+  max-width: 1100px;
 }
 
 /* Two-column flex container: sidebar on the left, content on the right */
@@ -132,7 +132,7 @@ body.section-page {
 
 /* Left sidebar — holds the section label and page links */
 .sidebar {
-  width: 160px;
+  width: 120px;
   flex-shrink: 0;           /* don't let it shrink when content is long */
   padding-right: 36px;
   border-right: 1px solid #2e2e2e;
@@ -189,6 +189,238 @@ body.section-page {
 .page-content {
   flex: 1;
   padding-left: 52px;
+  transition: opacity 0.4s ease;
+}
+
+/* Dim the story content when the About panel is open.
+   :has() checks whether a parent contains .about-sidebar.open — no JS needed.
+   Adjust the opacity value to taste. */
+.section-body:has(.about-sidebar.open) .page-content {
+  opacity: 0.45;
+}
+
+/* ─── Left sidebar mobile toggle ────────────────────────────────────────── */
+
+/* The toggle button that reveals the left sidebar on mobile.
+   Hidden on desktop — shown only via the media query below. */
+.sidebar-toggle {
+  display: none;
+}
+
+/* ─── Right "About" sidebar ──────────────────────────────────────────────── */
+
+/* Collapsed state: narrow column on the right.
+   Width and background both transition so the panel expands visually when opened.
+   In flexbox, a wider right element naturally grows left — into the content area. */
+.about-sidebar {
+  width: 180px;
+  flex-shrink: 0;
+  padding-left: 36px;
+  transition: width 0.4s ease, background-color 0.4s ease,
+              padding 0.4s ease, border-color 0.4s ease;
+}
+
+/* Open state: wider panel with a subtle background to distinguish it from the page.
+   The content area shrinks to give space — the expansion feels like it's "taking over". */
+.about-sidebar.open {
+  width: 420px;
+  background-color: #252525;
+  padding: 20px 20px 28px 28px;
+  border-left: 1px solid #333333;
+}
+
+/* The clickable "About" header — resets button defaults so it looks like a label */
+.about-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+}
+
+/* The "ABOUT" label text */
+.about-toggle-label {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #555555;
+  margin-bottom: 12px;
+  transition: color 0.35s ease;
+}
+
+.about-toggle:hover .about-toggle-label {
+  color: #888888;
+}
+
+/* When open, make the label white to match the active sidebar link on the left */
+.about-sidebar.open .about-toggle-label {
+  color: #e8e8e8;
+}
+
+/* The horizontal line below "ABOUT" in the closed state.
+   Fades out as the panel opens — making room for the content to reveal.
+   A matching line at the bottom of .about-body appears last as the curtain rises. */
+.about-rule {
+  border: none;
+  border-top: 1px solid #2e2e2e;
+  margin: 0;
+  transition: opacity 0.25s ease;
+}
+
+.about-toggle:hover .about-rule {
+  border-top-color: #3a3a3a;
+}
+
+/* Fade out the top rule when the panel opens */
+.about-sidebar.open .about-rule {
+  opacity: 0;
+}
+
+/* The collapsible content area.
+   Starts at height: 0 — JS measures and animates the height.
+   Width is controlled by .about-sidebar.open above. */
+.about-body {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.4s ease;
+}
+
+/* One subsection within the About panel (e.g. Process, Themes) */
+.about-section {
+  padding-top: 20px;
+}
+
+/* Subsection heading */
+.about-section h4 {
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4a4a4a;
+  margin: 0 0 8px;
+  transition: color 0.35s ease;
+}
+
+/* Brighten headings when panel is open — distinctly brighter than body text
+   so the section breaks (Process, Inspiration, Themes) are clearly visible */
+.about-sidebar.open .about-section h4 {
+  color: #b0b0b0;
+}
+
+/* Subsection body text */
+.about-section p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #505050;
+  margin: 0 0 8px;
+  transition: color 0.35s ease;
+}
+
+/* Brighten body text when panel is open */
+.about-sidebar.open .about-section p {
+  color: #868686;
+}
+
+/* The bottom rule — appears last as the content height finishes revealing.
+   Because overflow:hidden clips from the bottom, this is the last thing visible
+   during the open animation, creating the impression the line slid down. */
+.about-body-rule {
+  border: none;
+  border-top: 1px solid #2e2e2e;
+  margin: 24px 0 0;
+}
+
+/* ─── Responsive layout (mobile) ────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  /* Stack everything vertically instead of side by side */
+  .section-body {
+    flex-direction: column;
+  }
+
+  /* Show the left sidebar toggle button on mobile */
+  .sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #2e2e2e;
+    padding: 12px 0;
+    width: 100%;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555555;
+  }
+
+  .sidebar-toggle:hover {
+    color: #888888;
+  }
+
+  /* Arrow rotates 90° when the sidebar is open */
+  .sidebar-toggle-arrow {
+    font-size: 10px;
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+
+  .sidebar-toggle[aria-expanded="true"] .sidebar-toggle-arrow {
+    transform: rotate(90deg);
+  }
+
+  /* Left sidebar: full-width, collapsed by default on mobile.
+     JS drives the height value; CSS provides the transition. */
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #2e2e2e;
+    padding-right: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s ease;
+  }
+
+  /* Padding inside sidebar is needed when it's open, but only then.
+     Achieved by targeting the inner label so it doesn't show when height is 0. */
+  .sidebar .sidebar-label {
+    margin-top: 16px;
+  }
+
+  /* Remove left padding from content — sidebar is now above, not beside */
+  .page-content {
+    padding-left: 0;
+    padding-top: 32px;
+  }
+
+  /* Right about sidebar: full-width, sits below the content on mobile */
+  .about-sidebar {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #2e2e2e;
+    padding-left: 0;
+    padding-top: 20px;
+    margin-top: 48px;
+  }
+
+  /* When About is open on mobile, keep it full-width — prevents the desktop
+     420px from overflowing the viewport. Also re-zero the left padding since
+     the desktop open state adds padding: 20px 20px 28px 28px. */
+  .about-sidebar.open {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #333333;
+    padding: 20px 0 28px 0;
+  }
+
 }
 
 /* Thin rule used before postscript notes */

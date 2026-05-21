@@ -12,16 +12,23 @@
     <header>
       <a href="index.html" class="site-name">Shehryar Siddiqui</a>
       <nav>
-        <a href="writing.html">Writing</a>
         <a href="projects.html" class="active">Projects</a>
+        <a href="writing.html">Writing</a>
       </nav>
     </header>
 
     <main>
       <div class="section-body">
 
-        <!-- Sidebar: same links as projects.html, This Website marked active -->
-        <aside class="sidebar">
+        <!-- Mobile toggle button — hidden on desktop, shown via CSS media query. -->
+        <button class="sidebar-toggle" aria-expanded="false" aria-controls="nav-sidebar">
+          <span>Projects</span>
+          <span class="sidebar-toggle-arrow">›</span>
+        </button>
+
+        <!-- Sidebar: same links as projects.html, This Website marked active.
+             id="nav-sidebar" lets sidebar.js find this element for the mobile toggle. -->
+        <aside class="sidebar" id="nav-sidebar">
           <p class="sidebar-label">Projects</p>
           <ul class="sidebar-nav">
             <!-- "active" shows this as the currently open page -->
@@ -96,6 +103,9 @@
     <footer>
       <p>shehryarsiddiqui.com</p>
     </footer>
+
+    <!-- sidebar.js handles the mobile left-nav toggle -->
+    <script src="sidebar.js"></script>
 
   </body>
 </html>

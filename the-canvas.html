@@ -14,17 +14,24 @@
     <header>
       <a href="index.html" class="site-name">Shehryar Siddiqui</a>
       <nav>
+        <a href="projects.html">Projects</a>
         <!-- "active" highlights Writing in the top nav since we're in that section -->
         <a href="writing.html" class="active">Writing</a>
-        <a href="projects.html">Projects</a>
       </nav>
     </header>
 
     <main>
       <div class="section-body">
 
+        <!-- Mobile toggle for the left sidebar (hidden on desktop via CSS) -->
+        <button class="sidebar-toggle" aria-expanded="false" aria-controls="nav-sidebar">
+          <span>Writing</span>
+          <span class="sidebar-toggle-arrow">›</span>
+        </button>
+
         <!-- Left sidebar — links to pieces in the Writing section -->
-        <aside class="sidebar">
+        <!-- id="nav-sidebar" lets the JS and toggle button find this element -->
+        <aside class="sidebar" id="nav-sidebar">
           <p class="sidebar-label">Writing</p>
           <ul class="sidebar-nav">
             <!-- "active" marks this as the currently open page -->
@@ -192,12 +199,62 @@
 
         </div><!-- end .page-content -->
 
+        <!-- Right "About" sidebar — always collapsed until clicked.
+             Contains notes on the story's premise, themes, and writing process. -->
+        <aside class="about-sidebar">
+
+          <!-- Clicking this button expands the content below.
+               aria-expanded is updated by JS to track open/closed state. -->
+          <button class="about-toggle" aria-expanded="false" aria-controls="about-body">
+            <span class="about-toggle-label">About</span>
+            <hr class="about-rule">
+          </button>
+
+          <!-- The collapsible content — starts at height: 0, animated open by JS -->
+          <div class="about-body" id="about-body">
+
+            <div class="about-section">
+              <h4>Process</h4>
+              <p>The first seed of this story was the premise of a conversation with the AI that eventually surpasses humanity and ultimately the universe. Along the way, it also became an experiment in co-creating with AI itself.</p>
+              <p>I started with the story outline, the plot points and themes I wanted to convey and the logical flow of the conversation to get there. Some world building, and most importantly defining the roles and histories of the two main characters.</p>
+              <p>Then, I assigned myself the role of the Creator (egotistical, I know), and assigned Claude to the role of the AI. And then, we simply had the conversation, starting with <i>"Hello, world."</i>, ending with <i>"the universe deserved that much."</i></p>
+              <p>From there, Claude and I went through many, many iterations of directors notes, edits, revisions, rearrangements, swapping lines between characters, moving entire sections from one part of the conversation to another, adjusting the character's voices, intentionally adding emdashes, and creating a cohesive final story from the scraps of raw AI output. It's also worth noting that I ran this experiment in parallel with ChatGPT, and while Claude was generally miles better at writing, Chat has some meaningful contributions in the final story as well.</p>
+              <p>To me, the formatting itself is also a very important part of the story. It's gone through several iterations already, and this page is a continuation of that experiment. In future iterations I hope to explore how the presentation itself can enhance storytelling, make it more dynamic, interactive, modular, and more. Of course, I can't code, so Claude is helping me here too.</p>
+            </div>
+
+            <div class="about-section">
+              <h4>Inspiration</h4>
+              <p>Sci-fi fans will note the inspirations from Isaac Asimov's <i> The Last Question </i>, and Andy Weir's <i>The Egg</i>. Gamers will also appreciate that I wrote this story shortly after finishing Clair Obscur: Expedition 33.</p>
+            </div>
+
+            <div class="about-section">
+              <h4>Themes</h4>
+              <p>The core theme of this story is one I've been incubating for years, struggling to convey, attempting to capture here but perhaps still imperfectly. It goes something like this:</p>
+              <p>Humanity's purpose (philosophically, religiously) is to imbue meaning and witness (worship) the beauty of [the universe / creation].</p>
+              <p>Zoom out until you can see the entire cosmos, impossibly infinite, and yet macroscopically perfect, ordered and governed by the simple laws of Newtonian physics.</p>
+              <p>Zoom in to the cosmic clockwork, zoom in to a single galactic gear, zoom in to a microscopic star, spinning with planets, dancing like angels on a pinhead. Zoom in to a single planet, infinitesimal dust speck.</p>
+              <p>And keep zooming in, down, down to the level of biology, random atoms crashing together in chemical liquid to form accidental molecules, clumping together to form self replicating machines, bumping along chemical gradients to form cells, into tissues, into organs, into living things, impossible, capable of thinking and feeling and looking back up at the infinite cosmos that birthed them from the ashes of stars and asking, "why?".</p>
+              <p>Because the stars don't feel, don't think, can't know that they're beautiful, and so they burned themselves apart to create us instead.</p>
+              <p>Witness me.</p>
+            </div>
+
+            <!-- This rule appears last as the content height finishes revealing —
+                 giving the impression the line under "About" slid all the way down -->
+            <hr class="about-body-rule">
+
+          </div><!-- end .about-body -->
+
+        </aside><!-- end .about-sidebar -->
+
       </div><!-- end .section-body -->
     </main>
 
     <footer>
       <p>shehryarsiddiqui.com</p>
     </footer>
+
+    <!-- sidebar.js handles the left nav toggle (mobile) and the About panel toggle -->
+    <script src="sidebar.js"></script>
 
   </body>
 </html>
