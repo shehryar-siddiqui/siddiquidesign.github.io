@@ -1,0 +1,127 @@
+/*
+  style-canvas.css
+  Styles specific to The Canvas story page.
+  Linked from the-canvas.html — not the master style.css.
+
+  Three line types used in this dialogue:
+    p.creator   — the Creator's lines, left-aligned with a left border accent (bright)
+    p.ai        — the AI's lines, right-side block with left-aligned text (dim)
+    p.direction — stage directions, centered and italic
+*/
+
+/* ── Story title and byline ────────────────────────────────────────────── */
+
+/* Centers the h1 title above the story */
+.page-content h1 {
+  text-align: center;
+}
+
+/* Wraps all dialogue lines on a story page */
+.story {
+  margin-top: 32px;
+}
+
+/* Primary byline ("by Shehryar Siddiqui") — sits just under the h1 */
+.story-byline {
+  text-align: center;
+  font-size: 13px;
+  color: #555555;
+  font-style: italic;
+  margin: -16px 0 4px;   /* negative top pulls up under h1; small bottom gap to next byline */
+}
+
+/* Secondary byline ("co-written with Claude") — slightly dimmer, no negative pull */
+.story-byline + .story-byline {
+  margin-top: 0;         /* overrides the -16px; sits flush below the first line */
+  color: #404040;        /* a bit dimmer than the primary author credit */
+}
+
+
+/* ── Creator lines ─────────────────────────────────────────────────────── */
+
+/* Left-aligned, with a thin vertical accent bar on the left edge.
+   The border + padding together create the "indented quote" look.
+   Creator is the bright/prominent voice in this layout. */
+.story p.creator {
+  color: #c0c0c0;
+  padding-left: 18px;               /* room between the border and the text */
+  border-left: 2px solid #363636;   /* the accent bar — change color to adjust prominence */
+  width: 60%;                       /* limits the line width; text wraps within this */
+  margin: 0 0 12px;
+  line-height: 1.7;
+  letter-spacing: 0.02em;           /* subtle letter spacing to make it feel "louder"*/
+}
+
+/* ── AI lines ──────────────────────────────────────────────────────────── */
+
+/* Right-side block: margin-left: auto pushes the box to the right edge.
+   width controls how far right it sits — smaller = more offset, less text width.
+   text-align: left is intentional: right-alignment creates ragged-left edges on
+   wrapped lines which are hard to read. At 55% width, the left edge of the text
+   sits clearly in the right portion of the content area without feeling centered.
+
+   To experiment further:
+     - Reduce width (e.g. 48%) to push it further right
+     - Change text-align to "right" for short one-liner lines (harder to read on long ones)
+     - Change border-right color to make the accent more or less visible */
+.story p.ai {
+  color: #707070;
+  margin-left: auto;    /* pushes the block to the right */
+  width: 55%;           /* narrower than Creator to feel clearly right-side */
+  padding-right: 12px;              /* room between the text and the border */
+  border-right: 2px solid #363636;  /* right-side accent bar to mirror Creator's left bar */
+  text-align: right;     /* left-aligned within the right block — best for readability */
+  margin-bottom: 12px;
+  line-height: 1.8;
+  font-size: 15px;       /* slightly smaller than Creator to feel more "distant" */
+}
+
+/* ── Stage directions ──────────────────────────────────────────────────── */
+
+/* Centered and italic — feels like a script note floating between the lines */
+.story p.direction {
+  text-align: center;
+  font-style: italic;
+  color: #4e4e4e;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  margin: 28px 0 16px;  /* extra space above to separate from the dialogue */
+}
+
+/* ── Spacing and transitions ───────────────────────────────────────────── */
+
+/* Extra vertical gap whenever the speaker changes — makes the exchange readable */
+.story p.ai + p.creator,
+.story p.creator + p.ai {
+  margin-top: 28px;
+}
+
+/* ── Closing elements ──────────────────────────────────────────────────── */
+
+/* The "—" separator between the last dialogue line and the closing prose */
+.story p.story-break {
+  text-align: center;
+  color: #404040;
+  font-size: 18px;
+  margin: 32px 0 32px;
+}
+
+/* The final prose paragraphs after the dialogue ends */
+.story p.epilogue {
+  text-align: center;
+  color: #585858;
+  font-style: italic;
+  font-size: 15px;
+  margin: 0 0 8px;
+  line-height: 1.8;
+}
+
+/* Date colophon — sits far below the story, quiet enough to not distract */
+.story-date {
+  text-align: center;
+  font-family: 'Courier New', monospace;  /* monospace feels archival/understated */
+  font-size: 11px;
+  color: #333333;
+  letter-spacing: 0.08em;
+  margin-top: 80px;   /* large gap keeps it well clear of the epilogue */
+}

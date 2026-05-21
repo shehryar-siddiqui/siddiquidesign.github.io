@@ -1,0 +1,7 @@
+# Claude Code working files
+.claude/worktrees/
+
+# Common junk to ignore
+.DS_Store
+Thumbs.db
+desktop.ini

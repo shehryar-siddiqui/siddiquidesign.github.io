@@ -59,11 +59,11 @@ h1 {
 }
 
 h2 {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: normal;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #aaaaaa;
+  /* text-transform: uppercase; */
+  /* color: #aaaaaa; */
   margin: 0 0 24px;
 }
 
@@ -71,6 +71,11 @@ p {
   line-height: 1.8;
   color: #aaaaaa;
   margin: 0 0 16px;
+}
+
+li {
+  color: #aaaaaa;
+  line-height: 1.8;
 }
 
 /* Post list */
@@ -184,6 +189,20 @@ body.section-page {
 .page-content {
   flex: 1;
   padding-left: 52px;
+}
+
+/* Thin rule used before postscript notes */
+.page-rule {
+  border: none;
+  border-top: 1px solid #2e2e2e;
+  margin: 48px 0 24px;
+}
+
+/* Small postscript text, dimmer than body copy */
+.postscript {
+  font-size: 13px;
+  color: #555555;
+  font-style: italic;
 }
 
 /* Footer */
