@@ -18,26 +18,36 @@ const TRANSITION_MS = 400; // matches 'transition: ... 0.4s' in style.css
 
 /* ── Left navigation sidebar (mobile toggle) ──────────────────────────── */
 
-const sidebarToggle = document.querySelector('.sidebar-toggle');
-const navSidebar    = document.getElementById('nav-sidebar');
+// Only initialize the toggle on mobile-width viewports.
+// On desktop the sidebar is always visible and the toggle button is display:none —
+// attaching behavior to a hidden button on desktop can interfere with the layout
+// and the About panel, so we gate it here with the same 768px threshold used in CSS.
+if (window.innerWidth <= 768) {
 
-if (sidebarToggle && navSidebar) {
-  sidebarToggle.addEventListener('click', function () {
-    const isOpen = this.getAttribute('aria-expanded') === 'true';
+  const sidebarToggle = document.querySelector('.sidebar-toggle');
+  const navSidebar    = document.getElementById('nav-sidebar');
 
-    if (isOpen) {
-      navSidebar.style.height = '0';
-      this.setAttribute('aria-expanded', 'false');
-    } else {
-      navSidebar.style.height = navSidebar.scrollHeight + 'px';
-      this.setAttribute('aria-expanded', 'true');
-    }
-  });
+  if (sidebarToggle && navSidebar) {
+    sidebarToggle.addEventListener('click', function () {
+      const isOpen = this.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+        navSidebar.style.height = '0';
+        this.setAttribute('aria-expanded', 'false');
+      } else {
+        navSidebar.style.height = navSidebar.scrollHeight + 'px';
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+
 }
 
 
 /* ── Right "About" sidebar ─────────────────────────────────────────────── */
 
+// The About panel is a desktop feature (not viewport-gated) — it expands
+// sideways on desktop and stacks vertically on mobile, but the JS is the same.
 const aboutToggle  = document.querySelector('.about-toggle');
 const aboutBody    = document.getElementById('about-body');
 const aboutSidebar = aboutToggle ? aboutToggle.closest('.about-sidebar') : null;
