@@ -45,6 +45,10 @@
 
           <h1>The Canvas</h1>
 
+          <!-- Animation toggle — position is placeholder for now; functionality first.
+               canvas-animations.js reads this button's id to wire up the click handler. -->
+          <button id="anim-toggle" class="anim-toggle">Static</button>
+
           <!-- .story wraps all the dialogue so the styles below only apply here -->
           <div class="story">
 
@@ -255,6 +259,9 @@
 
     <!-- sidebar.js handles the left nav toggle (mobile) and the About panel toggle -->
     <script src="sidebar.js"></script>
+
+    <!-- canvas-animations.js drives the scroll-triggered typewriter effect -->
+    <script src="canvas-animations.js"></script>
 
   </body>
 </html>

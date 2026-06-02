@@ -116,7 +116,30 @@
   line-height: 1.8;
 }
 
-/* Date colophon — sits far below the story, quiet enough to not distract */
+/* ── Animation toggle button ───────────────────────────────────────────────── */
+
+/* Placeholder position — will be repositioned later.
+   Currently sits below the title, centered, matching the site's dim aesthetic. */
+.anim-toggle {
+  display: block;
+  margin: -8px auto 24px;   /* negative top pulls it closer to the title */
+  background: none;
+  border: 1px solid #2e2e2e;
+  color: #444444;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 4px 12px;
+}
+
+.anim-toggle:hover {
+  color: #888888;
+  border-color: #444444;
+}
+
+/* ── Date colophon — sits far below the story, quiet enough to not distract */
 .story-date {
   text-align: center;
   font-family: 'Courier New', monospace;  /* monospace feels archival/understated */
