@@ -139,6 +139,69 @@
   border-color: #444444;
 }
 
+/* ── Controls row (animation + versions toggles side by side) ────────────── */
+
+/* Wraps both toggle buttons so they sit inline, centered below the title.
+   Replaces the single-button margin that .anim-toggle used to handle alone. */
+.controls-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: -8px auto 24px;
+}
+
+/* Reset the block-level centering margin that .anim-toggle uses on its own */
+.controls-row .anim-toggle {
+  display: inline-block;
+  margin: 0;
+}
+
+/* Used when versions mode is active — dims the Animate/Static toggle
+   since typewriter animation doesn't apply while scrubbing versions */
+.anim-toggle:disabled {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+}
+
+
+/* ── Version timeline bar ──────────────────────────────────────────────────── */
+
+/* The bar of six tick buttons; hidden via inline style until versions mode is on.
+   flex-wrap lets it collapse to two rows on narrow mobile screens. */
+#versions-timeline {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin: -16px auto 24px; /* negative top closes the gap under the controls row */
+}
+
+/* Individual tick button — deliberately dim to stay subordinate to the story text */
+.versions-tick {
+  background: none;
+  border: 1px solid #252525;
+  color: #333333;
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 3px 10px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.versions-tick:hover {
+  border-color: #3e3e3e;
+  color: #666666;
+}
+
+/* The currently selected version tick */
+.versions-tick.active {
+  border-color: #555555;
+  color: #888888;
+}
+
+
 /* ── Date colophon — sits far below the story, quiet enough to not distract */
 .story-date {
   text-align: center;

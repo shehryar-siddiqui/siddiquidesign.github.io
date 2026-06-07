@@ -45,9 +45,25 @@
 
           <h1>The Canvas</h1>
 
-          <!-- Animation toggle — position is placeholder for now; functionality first.
-               canvas-animations.js reads this button's id to wire up the click handler. -->
-          <button id="anim-toggle" class="anim-toggle">Static</button>
+          <!-- Controls row: the Animate/Static toggle and the Versions mode toggle.
+               Both share .anim-toggle styles; .controls-row places them side by side.
+               canvas-animations.js wires up #anim-toggle; canvas-versions.js wires up #versions-toggle. -->
+          <div class="controls-row">
+            <button id="anim-toggle" class="anim-toggle">Static</button>
+            <button id="versions-toggle" class="anim-toggle">Versions</button>
+          </div>
+
+          <!-- Version timeline bar — hidden until Versions mode is activated.
+               Six tick buttons, one per version in chronological order.
+               canvas-versions.js shows/hides this and handles click events. -->
+          <div id="versions-timeline" style="display: none">
+            <button class="versions-tick" data-version="draft_a">Draft A</button>
+            <button class="versions-tick" data-version="draft_b">Draft B</button>
+            <button class="versions-tick" data-version="v2_5">V 2.5</button>
+            <button class="versions-tick" data-version="draft_c">Draft C</button>
+            <button class="versions-tick" data-version="draft_d">Draft D</button>
+            <button class="versions-tick" data-version="final">Final</button>
+          </div>
 
           <!-- .story wraps all the dialogue so the styles below only apply here -->
           <div class="story">
@@ -262,6 +278,9 @@
 
     <!-- canvas-animations.js drives the scroll-triggered typewriter effect -->
     <script src="canvas-animations.js"></script>
+
+    <!-- canvas-versions.js adds the version-scrubbing timeline mode -->
+    <script src="canvas-versions.js"></script>
 
   </body>
 </html>
