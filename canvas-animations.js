@@ -199,6 +199,57 @@ function typeIn(el, text, onComplete, session) {
 }
 
 
+// ─── External API for canvas-versions.js ─────────────────────────────────────
+
+/*
+  These two window functions let canvas-versions.js coordinate with the
+  animation system without reading or writing its internal variables directly.
+  Both are called from canvas-versions.js; they should not be called from
+  anywhere else.
+*/
+
+/*
+  Cancels any in-flight animation by advancing the session counter.
+  All pending setTimeout / setInterval callbacks capture the old session
+  value and will bail out silently when they see the mismatch.
+*/
+window.cancelCanvasAnimation = function () {
+  currentSession++;
+};
+
+/*
+  Re-initializes the animation system after .story's DOM has been replaced
+  (happens when exiting versions mode, which re-renders the story from data).
+
+  What this does:
+    - Cancels anything in flight (new session)
+    - Re-scans the document for story elements
+    - Stores their current text without clearing it (text stays visible)
+    - Puts the system in static mode so the button shows "Animate"
+
+  After this runs, the user can click "Animate" to restart the typewriter
+  from the beginning against the freshly-built DOM elements.
+*/
+window.reinitCanvasAnimation = function () {
+  currentSession++; /* cancel in-flight work */
+
+  /* Re-scan elements that are now in the DOM (new nodes from renderVersion) */
+  allTargets = Array.from(document.querySelectorAll(ANIMATED_SELECTORS));
+  originalTexts.clear();
+  allTargets.forEach(function (el) {
+    /* Store visible text without clearing — we enter static mode */
+    originalTexts.set(el, el.textContent);
+  });
+
+  /* Switch to static mode */
+  animationEnabled = false;
+  var btn = document.getElementById('anim-toggle');
+  if (btn) {
+    btn.textContent = 'Animate';
+  }
+};
+
+
 // ─── Entry point ─────────────────────────────────────────────────────────────
 
 if (document.readyState === 'loading') {

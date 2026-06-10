@@ -9,31 +9,34 @@
     p.direction — stage directions, centered and italic
 */
 
-/* ── Story title and byline ────────────────────────────────────────────── */
+/* ── Story title and bylines ───────────────────────────────────────────── */
 
 /* Centers the h1 title above the story */
 .page-content h1 {
   text-align: center;
+  margin-bottom: 8px;   /* tightened — bylines sit close under the title */
 }
 
-/* Wraps all dialogue lines on a story page */
-.story {
-  margin-top: 32px;
-}
-
-/* Primary byline ("by Shehryar Siddiqui") — sits just under the h1 */
+/* Bylines sit directly under the title as siblings of .story-controls,
+   not inside .story. These rules apply to both the static HTML and to
+   any bylines rendered inside .story by the versions JS for draft views. */
 .story-byline {
   text-align: center;
   font-size: 13px;
   color: #555555;
   font-style: italic;
-  margin: -16px 0 4px;   /* negative top pulls up under h1; small bottom gap to next byline */
+  margin: 0 0 3px;
 }
 
-/* Secondary byline ("co-written with Claude") — slightly dimmer, no negative pull */
+/* Secondary byline ("co-written with Claude") — slightly dimmer */
 .story-byline + .story-byline {
-  margin-top: 0;         /* overrides the -16px; sits flush below the first line */
-  color: #404040;        /* a bit dimmer than the primary author credit */
+  color: #404040;
+  margin-bottom: 0;   /* .story-controls provides the gap below */
+}
+
+/* Wraps all dialogue lines on a story page */
+.story {
+  margin-top: 28px;
 }
 
 
@@ -116,10 +119,33 @@
   line-height: 1.8;
 }
 
+/* ── Sticky controls wrapper ───────────────────────────────────────────────── */
+
+/*
+  Wraps the button row, authorship legend, and version timeline so they all
+  stick together as one unit when the reader scrolls down.
+
+  background-color matches the page (#202020) so story text scrolling underneath
+  doesn't bleed through. A hairline bottom border lifts it off the content below.
+
+  top: 8px gives a small breathing gap from the viewport edge on desktop.
+  On mobile (see media query below) we use top: 0 — the header has scrolled
+  away and there's no need for the gap.
+*/
+.story-controls {
+  position: sticky;
+  top: 8px;
+  z-index: 10;
+  background-color: #202020;
+  padding: 10px 0 6px;
+  margin: 16px 0 0;
+  border-bottom: 1px solid #282828;  /* subtle separator between controls and story */
+}
+
+
 /* ── Animation toggle button ───────────────────────────────────────────────── */
 
-/* Placeholder position — will be repositioned later.
-   Currently sits below the title, centered, matching the site's dim aesthetic. */
+/* Sits inside .story-controls; inherits the sticky positioning from its parent. */
 .anim-toggle {
   display: block;
   margin: -8px auto 24px;   /* negative top pulls it closer to the title */
@@ -138,6 +164,151 @@
   color: #888888;
   border-color: #444444;
 }
+
+/* ── Controls row (button bar inside .story-controls) ───────────────────── */
+
+/* Sits inside the sticky .story-controls wrapper.
+   No negative margin needed — .story-controls handles the outer spacing. */
+.controls-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 0;
+}
+
+/* All buttons in the row share the same baseline style from .anim-toggle */
+.controls-row .anim-toggle {
+  display: inline-block;
+  margin: 0;
+}
+
+/* Used when versions mode is active — dims the Animate/Static toggle
+   since typewriter animation doesn't apply while scrubbing versions */
+.anim-toggle:disabled {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+}
+
+
+/* ── Version timeline bar ──────────────────────────────────────────────────── */
+
+/* The bar of six tick buttons; hidden via inline style until versions mode is on.
+   Lives inside .story-controls so no margin adjustment needed — just center it.
+   flex-wrap lets it collapse to two rows on narrow mobile screens. */
+#versions-timeline {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin: 8px auto 0;
+}
+
+/* Individual tick button — deliberately dim to stay subordinate to the story text */
+.versions-tick {
+  background: none;
+  border: 1px solid #252525;
+  color: #333333;
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 3px 10px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.versions-tick:hover {
+  border-color: #3e3e3e;
+  color: #666666;
+}
+
+/* The currently selected version tick */
+.versions-tick.active {
+  border-color: #555555;
+  color: #888888;
+}
+
+
+/* ── Authorship toggle active state ─────────────────────────────────────────── */
+
+/*
+  When authorship color mode is on, the button gets the .active class.
+  Slightly brighter text and border so it reads as "pressed" without being loud.
+*/
+#authorship-toggle.active {
+  color: #888888;
+  border-color: #555555;
+}
+
+
+/* ── Authorship legend ───────────────────────────────────────────────────────── */
+
+/*
+  Appears inside .story-controls when authorship mode is on — between the
+  button row and the version timeline. Inherits sticky from the wrapper.
+  A single row: "Shehryar" label — gradient bar — "Claude" label.
+*/
+#authorship-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px auto 4px;
+  max-width: 260px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* "claude" and "you" end labels — color set via inline style in JS */
+.legend-end {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* The gradient bar between the two labels */
+.legend-bar {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    hsl(35,  75%, 84%),   /* Shehryar end */
+    hsl(0,   0%,  90%),   /* white midpoint */
+    hsl(200, 65%, 68%)    /* Claude end */
+  );
+}
+
+
+/* ── Mobile overrides ──────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  /*
+    On mobile the site header scrolls away quickly, so we don't need the 8px
+    breathing gap — stick flush to the top of the viewport instead.
+    The controls row wraps to two lines if needed (three buttons at ~390px
+    fit on one line, but this ensures it works for smaller devices too).
+  */
+  .story-controls {
+    top: 0;
+    padding: 8px 0 4px;
+  }
+
+  /*
+    Allow the button row to wrap on very narrow screens (<360px).
+    At 390px all three short labels fit on one row comfortably.
+  */
+  .controls-row {
+    flex-wrap: wrap;
+  }
+
+  /* Narrow the legend bar so it stays within 390px safely */
+  #authorship-legend {
+    max-width: 220px;
+  }
+
+}
+
 
 /* ── Date colophon — sits far below the story, quiet enough to not distract */
 .story-date {

@@ -45,15 +45,39 @@
 
           <h1>The Canvas</h1>
 
-          <!-- Animation toggle — position is placeholder for now; functionality first.
-               canvas-animations.js reads this button's id to wire up the click handler. -->
-          <button id="anim-toggle" class="anim-toggle">Static</button>
+          <!-- Bylines sit directly under the title, above the control bar -->
+          <p class="story-byline">by Shehryar Siddiqui</p>
+          <p class="story-byline">co-written with Claude</p>
+
+          <!-- .story-controls wraps the button row, authorship legend (injected by JS),
+               and version timeline so they all stick together as one unit when scrolling.
+               canvas-animations.js wires up #anim-toggle;
+               canvas-versions.js wires up #versions-toggle and #authorship-toggle. -->
+          <div class="story-controls">
+
+            <div class="controls-row">
+              <button id="anim-toggle" class="anim-toggle">Static</button>
+              <button id="versions-toggle" class="anim-toggle">Versions</button>
+              <button id="authorship-toggle" class="anim-toggle">Authorship</button>
+            </div>
+
+            <!-- authorship legend is injected here by canvas-versions.js -->
+
+            <!-- Version timeline bar — hidden until Versions mode is activated.
+                 Six tick buttons, one per version in chronological order. -->
+            <div id="versions-timeline" style="display: none">
+              <button class="versions-tick" data-version="draft_a">Draft A</button>
+              <button class="versions-tick" data-version="draft_b">Draft B</button>
+              <button class="versions-tick" data-version="v2_5">V 2.5</button>
+              <button class="versions-tick" data-version="draft_c">Draft C</button>
+              <button class="versions-tick" data-version="draft_d">Draft D</button>
+              <button class="versions-tick" data-version="final">Final</button>
+            </div>
+
+          </div><!-- end .story-controls -->
 
           <!-- .story wraps all the dialogue so the styles below only apply here -->
           <div class="story">
-
-            <p class="story-byline">by Shehryar Siddiqui</p>
-            <p class="story-byline">co-written with Claude</p>
 
             <!--
               Three types of lines in this story:
@@ -262,6 +286,9 @@
 
     <!-- canvas-animations.js drives the scroll-triggered typewriter effect -->
     <script src="canvas-animations.js"></script>
+
+    <!-- canvas-versions.js adds the version-scrubbing timeline mode -->
+    <script src="canvas-versions.js"></script>
 
   </body>
 </html>
