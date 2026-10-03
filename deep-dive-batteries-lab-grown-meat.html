@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Batteries Can Teach Us About Lab-Grown Meat — Shehryar Siddiqui</title>
+    <meta name="description" content="Batteries went from pipe dream to cheaper than coal in about five years. What would it take for cultivated meat to follow the same curve?">
+    <link rel="stylesheet" href="style.css">
+    <!-- style-deepdive.css: extra styles for the long-form writeups (loaded after style.css) -->
+    <link rel="stylesheet" href="style-deepdive.css">
+  </head>
+
+  <body class="section-page">
+
+    <header>
+      <a href="index.html" class="site-name">Shehryar Siddiqui</a>
+      <nav>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="writing.html">Writing</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="section-body">
+
+        <!-- Mobile toggle button — hidden on desktop, shown via CSS media query. -->
+        <button class="sidebar-toggle" aria-expanded="false" aria-controls="nav-sidebar">
+          <span>Projects</span>
+          <span class="sidebar-toggle-arrow">›</span>
+        </button>
+
+        <aside class="sidebar" id="nav-sidebar">
+          <p class="sidebar-label">Projects</p>
+          <ul class="sidebar-nav">
+            <li><a href="this-website.html">This Website</a></li>
+          </ul>
+          <!-- Deep Dives: longer research writeups -->
+          <p class="sidebar-label" style="margin-top:28px">Deep Dives</p>
+          <ul class="sidebar-nav">
+            <li><a href="deep-dive-batteries-lab-grown-meat.html" class="active">Batteries &amp; Lab-Grown Meat</a></li>
+            <li><a href="deep-dive-ai-capital-stack.html">AI Capital Stack</a></li>
+          </ul>
+        </aside>
+
+        <!-- Article content. "dd" scopes the deep-dive styles in style-deepdive.css. -->
+        <div class="page-content dd">
+
+<div class="dd-hero">
+<h1>What <span class="b">batteries</span> can teach us about <span class="r" style="white-space:nowrap">lab-grown</span> <span class="r">meat</span></h1>
+<p class="dek">For decades, grid batteries were a pipe dream. Then, almost overnight, they weren't. Lab-grown, or "cultivated," meat is in the pipe-dream phase now. What would it take for it to follow the same curve?</p>
+<p class="byline">Informational analysis by Shehryar Siddiqui · October 2026 · Written up with the help of AI</p>
+<!-- Table of contents: a native <details> element, so it opens/closes with no JavaScript.
+               Links jump to each section (ids were added to the h2s below). -->
+          <details class="toc">
+            <summary>Contents</summary>
+            <ol>
+            <li><a href="#s1">Is lab-grown meat the next pipe dream?</a></li>
+            <li><a href="#s2">What cheap batteries unlocked</a></li>
+            <li><a href="#s3">How batteries pulled it off, and what it means for lab-grown meat</a></li>
+            <li><a href="#s4">The technology, in five problems</a></li>
+            <li><a href="#s5">Tailwinds and headwinds</a></li>
+            <li><a href="#s6">Consumer sentiment: the force batteries never faced</a></li>
+            <li><a href="#s7">Putting it together: a projected curve</a></li>
+            <li><a href="#s8">What to watch</a></li>
+            <li><a href="#s9">Sources</a></li>
+            </ol>
+          </details>
+<div class="bluf"><span class="lbl">The short version</span>
+<p>Batteries spent two decades as a "never competitive" technology, then became cheaper than new coal and gas in about five years once a handful of forces lined up.</p>
+<p>Cultivated meat is where batteries were in the laptop era: costs are falling fast, but from far above parity, with no patient sponsor yet and real political resistance.</p>
+<p>The battery playbook suggests ingredients and hybrid products could break through within a decade. Steaks will take longer. "Never" is the least likely outcome.</p></div>
+<figure class="blue"><figcaption>Battery storage costs have fallen sharply. Global benchmark levelized cost of electricity, constant 2025 $ per MWh</figcaption><div class="desk"><svg viewBox="0 0 920 440" role="img" aria-label="Line chart of global benchmark levelized cost of electricity 2020 to 2026. Battery storage falls from about 185 to 72 dollars per megawatt hour, crossing below coal and gas, while gas and offshore wind drift upward.">
+<line x1="56" x2="738" y1="388.0" y2="388.0" stroke="#D3D9DA" />
+<text x="46.0" y="392.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >0</text>
+<line x1="56" x2="738" y1="297.0" y2="297.0" stroke="#D3D9DA" />
+<text x="46.0" y="301.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >50</text>
+<line x1="56" x2="738" y1="206.0" y2="206.0" stroke="#D3D9DA" />
+<text x="46.0" y="210.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >100</text>
+<line x1="56" x2="738" y1="115.0" y2="115.0" stroke="#D3D9DA" />
+<text x="46.0" y="119.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >150</text>
+<line x1="56" x2="738" y1="24.0" y2="24.0" stroke="#D3D9DA" />
+<text x="46.0" y="28.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >200</text>
+<text x="56.0" y="410.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2020</text>
+<text x="168.3" y="410.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2021</text>
+<text x="280.7" y="410.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2022</text>
+<text x="393.0" y="410.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2023</text>
+<text x="505.3" y="410.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2024</text>
+<text x="617.7" y="410.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2025</text>
+<text x="730.0" y="410.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2026e</text>
+<polyline points="56.0,240.6 168.3,224.2 280.7,206.0 393.0,213.3 505.3,227.8 617.7,202.4 730.0,206.0" fill="none" stroke="#B7BFC4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<polyline points="56.0,195.1 168.3,191.4 280.7,222.4 393.0,233.3 505.3,227.8 617.7,206.0 730.0,211.5" fill="none" stroke="#B7BFC4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<polyline points="56.0,215.1 168.3,240.6 280.7,233.3 393.0,240.6 505.3,251.5 617.7,247.9 730.0,251.5" fill="none" stroke="#B7BFC4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<polyline points="56.0,278.8 168.3,293.4 280.7,297.0 393.0,291.5 505.3,293.4 617.7,295.2 730.0,309.7" fill="none" stroke="#B7BFC4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<polyline points="56.0,287.9 168.3,295.2 280.7,297.0 393.0,302.5 505.3,317.0 617.7,315.2 730.0,315.2" fill="none" stroke="#B7BFC4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<polyline points="56.0,295.2 168.3,300.6 280.7,304.3 393.0,302.5 505.3,320.7 617.7,317.0 730.0,318.8" fill="none" stroke="#B7BFC4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<text x="746.0" y="210.0" font-size="12" fill="#66707C" text-anchor="start" font-weight="400" class="" >Gas (CCGT)  $100</text>
+<text x="746.0" y="226.0" font-size="12" fill="#66707C" text-anchor="start" font-weight="400" class="" >Offshore wind  $97</text>
+<text x="746.0" y="255.5" font-size="12" fill="#66707C" text-anchor="start" font-weight="400" class="" >Coal  $75</text>
+<text x="746.0" y="313.7" font-size="12" fill="#66707C" text-anchor="start" font-weight="400" class="" >Tracking solar  $43</text>
+<text x="746.0" y="329.7" font-size="12" fill="#66707C" text-anchor="start" font-weight="400" class="" >Onshore wind  $40</text>
+<text x="746.0" y="345.7" font-size="12" fill="#66707C" text-anchor="start" font-weight="400" class="" >Fixed-axis solar  $38</text>
+<polyline points="56.0,51.3 168.3,82.2 280.7,51.3 393.0,96.8 505.3,193.3 617.7,246.0 730.0,257.0" fill="none" stroke="#1E6FD0" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<circle cx="56.0" cy="51.3" r="4" fill="#1E6FD0"/>
+<circle cx="168.3" cy="82.2" r="4" fill="#1E6FD0"/>
+<circle cx="280.7" cy="51.3" r="4" fill="#1E6FD0"/>
+<circle cx="393.0" cy="96.8" r="4" fill="#1E6FD0"/>
+<circle cx="505.3" cy="193.3" r="4" fill="#1E6FD0"/>
+<circle cx="617.7" cy="246.0" r="4" fill="#1E6FD0"/>
+<circle cx="730.0" cy="257.0" r="4" fill="#1E6FD0"/>
+<text x="746.0" y="287.0" font-size="13" fill="#1E6FD0" text-anchor="start" font-weight="700" class="" >Battery storage  $72</text>
+<line x1="736.0" y1="257.0" x2="742.0" y2="283.0" stroke="#1E6FD0" stroke-width="1"/>
+<text x="66.0" y="39.3" font-size="13" fill="#1E6FD0" text-anchor="start" font-weight="600" class="" >2020: about $185/MWh</text>
+<text x="513.3" y="173.2" font-size="12" fill="#1B2430" text-anchor="start" font-weight="400" class="" >2024–25: biggest drop on record</text>
+<text x="513.3" y="189.2" font-size="12" fill="#1B2430" text-anchor="start" font-weight="400" class="" >as Chinese overcapacity hit</text>
+<text x="56" y="432" font-size="11" fill="#66707C">Constant 2025 $ per MWh. Redrawn approximately from BloombergNEF data as charted by the Financial Times. 2026 = estimate.</text>
+</svg></div><div class="mob"><svg viewBox="0 0 400 400" role="img" aria-label="Battery storage cost falls from about 185 to 72 dollars per megawatt hour between 2020 and 2026, below coal and gas.">
+<line x1="36" x2="308" y1="342.0" y2="342.0" stroke="#D3D9DA"/><text x="30.0" y="346.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >0</text>
+<line x1="36" x2="308" y1="261.5" y2="261.5" stroke="#D3D9DA"/><text x="30.0" y="265.5" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >50</text>
+<line x1="36" x2="308" y1="181.0" y2="181.0" stroke="#D3D9DA"/><text x="30.0" y="185.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >100</text>
+<line x1="36" x2="308" y1="100.5" y2="100.5" stroke="#D3D9DA"/><text x="30.0" y="104.5" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >150</text>
+<line x1="36" x2="308" y1="20.0" y2="20.0" stroke="#D3D9DA"/><text x="30.0" y="24.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >200</text>
+<text x="36.0" y="362.0" font-size="12.5" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2020</text>
+<text x="125.3" y="362.0" font-size="12.5" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2022</text>
+<text x="214.7" y="362.0" font-size="12.5" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2024</text>
+<text x="304.0" y="362.0" font-size="12.5" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2026e</text>
+<polyline points="36.0,171.3 80.7,168.1 125.3,195.5 170.0,205.2 214.7,200.3 259.3,181.0 304.0,185.8" fill="none" stroke="#B7BFC4" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"  opacity="0.7"/>
+<polyline points="36.0,245.4 80.7,258.3 125.3,261.5 170.0,256.7 214.7,258.3 259.3,259.9 304.0,272.8" fill="none" stroke="#B7BFC4" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"  opacity="0.7"/>
+<polyline points="36.0,253.4 80.7,259.9 125.3,261.5 170.0,266.3 214.7,279.2 259.3,277.6 304.0,277.6" fill="none" stroke="#B7BFC4" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"  opacity="0.7"/>
+<polyline points="36.0,259.9 80.7,264.7 125.3,267.9 170.0,266.3 214.7,282.4 259.3,279.2 304.0,280.8" fill="none" stroke="#B7BFC4" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"  opacity="0.7"/>
+<polyline points="36.0,211.6 80.7,197.1 125.3,181.0 170.0,187.4 214.7,200.3 259.3,177.8 304.0,181.0" fill="none" stroke="#8E979D" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<polyline points="36.0,189.1 80.7,211.6 125.3,205.2 170.0,211.6 214.7,221.2 259.3,218.0 304.0,221.2" fill="none" stroke="#8E979D" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<polyline points="36.0,44.1 80.7,71.5 125.3,44.1 170.0,84.4 214.7,169.7 259.3,216.4 304.0,226.1" fill="none" stroke="#1E6FD0" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<text x="314.0" y="179.0" font-size="13" fill="#1B2430" text-anchor="start" font-weight="600" class="" >Gas $100</text>
+<text x="314.0" y="215.6" font-size="13" fill="#1B2430" text-anchor="start" font-weight="600" class="" >Coal $75</text>
+<text x="314.0" y="240.1" font-size="14" fill="#1E6FD0" text-anchor="start" font-weight="800" class="" >Battery</text>
+<text x="314.0" y="256.1" font-size="14" fill="#1E6FD0" text-anchor="start" font-weight="800" class="" >$72</text>
+<text x="314.0" y="287.6" font-size="12" fill="#66707C" text-anchor="start" font-weight="400" class="" >Wind and</text>
+<text x="314.0" y="302.6" font-size="12" fill="#66707C" text-anchor="start" font-weight="400" class="" >solar ~$40</text>
+<text x="42.0" y="34.1" font-size="13.5" fill="#1E6FD0" text-anchor="start" font-weight="700" class="" >2020: ~$185</text>
+<text x="36" y="388" font-size="11.5" fill="#66707C">$ per MWh, constant 2025 $. BloombergNEF via the FT.</text>
+</svg></div></figure>
+<div class="lead">
+<p>For most of the past twenty years, batteries were the punchline of energy debates. Too expensive, too small, dependent on subsidies. The standard line was that clean power would never compete with coal and gas on cost, and that storing it would be even further out of reach.</p>
+<p>As recently as 2020, storing and delivering a megawatt-hour of electricity from a four-hour battery cost around $185, roughly double new coal or gas. Then the line in the chart above fell off a cliff. By 2025 the cost had dropped to $78, and BloombergNEF estimates it will reach about $72 in 2026. Battery storage is now cheaper than new coal and new gas plants, while gas plants got 16% more expensive in 2025 alone.</p>
+</div>
+<div class="plain"><span class="lbl">In plain terms: levelized cost</span><p>Levelized cost of electricity is the total cost of building and running a power source over its lifetime, divided by the electricity it delivers. It lets you compare a battery, a gas plant and a solar farm on the same yardstick: dollars per megawatt-hour.</p></div>
+<div class="keystat blue"><b>4 years</b><p>The time it took annual battery installations worldwide to grow from 10 gigawatts to more than 100. In 2025 the world added 112 GW of storage, up 48% in a year.</p></div>
+<div class="lead">
+<p>The collapse looked sudden, but it was twenty years in the making. Lithium-ion costs had been falling steadily for two decades. What changed in the past few years is that several forces lined up at once: a cheaper battery chemistry, a flood of Chinese factory capacity, cheap solar power that needed somewhere to go, and new demand from data centers. When they aligned, batteries crossed price parity, and adoption began to look less like a choice and more like an inevitability.</p>
+</div>
+</div>
+
+<div class="dd-main">
+<section>
+<h2 id="s1">Is lab-grown meat the next pipe dream?</h2>
+<p class="sub">Cultivated meat hears the same caveats batteries heard for years: nobody will want it, it will never be cheap enough, and the economics don't work at scale.</p>
+<div class="lead">
+<p>Cultivated meat is real animal meat grown from cells in steel tanks rather than raised on a farm. The first cultivated burger, unveiled in 2013, cost about $330,000. Today small amounts are sold in a handful of countries, mostly in restaurants and at luxury prices. Funding has collapsed, several leading companies have closed, and seven US states have banned it.</p>
+</div>
+<div class="plain"><span class="lbl">In plain terms: how it&#x27;s made</span><p>Take a small sample of cells from an animal. Put them in a steel tank of warm nutrient broth, much like brewing beer, where they multiply for weeks. Harvest them, then form them into food, usually blended with plant or fungal ingredients for texture.</p></div>
+<div class="lead"><p>On the surface, cultivated meat looks nothing like batteries. But plotted the same way, the cost picture has a familiar shape.</p>
+</div>
+<figure class="red"><figcaption>Reported cultivated meat costs vs. US retail meat prices, $ per kg (log scale)</figcaption><div class="desk"><svg viewBox="0 0 920 500" role="img" aria-label="Log-scale chart of reported cultivated meat costs per kilogram from 2013 to 2025, falling from about 2.3 million dollars to claimed production costs of 10 to 15 dollars, approaching a band of conventional US retail meat prices between about 4.50 and 21 dollars per kilogram.">
+<line x1="70" x2="720" y1="444.0" y2="444.0" stroke="#D3D9DA"/>
+<text x="60.0" y="448.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$1</text>
+<line x1="70" x2="720" y1="384.0" y2="384.0" stroke="#D3D9DA"/>
+<text x="60.0" y="388.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$10</text>
+<line x1="70" x2="720" y1="324.0" y2="324.0" stroke="#D3D9DA"/>
+<text x="60.0" y="328.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$100</text>
+<line x1="70" x2="720" y1="264.0" y2="264.0" stroke="#D3D9DA"/>
+<text x="60.0" y="268.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$1k</text>
+<line x1="70" x2="720" y1="204.0" y2="204.0" stroke="#D3D9DA"/>
+<text x="60.0" y="208.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$10k</text>
+<line x1="70" x2="720" y1="144.0" y2="144.0" stroke="#D3D9DA"/>
+<text x="60.0" y="148.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$100k</text>
+<line x1="70" x2="720" y1="84.0" y2="84.0" stroke="#D3D9DA"/>
+<text x="60.0" y="88.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$1M</text>
+<line x1="70" x2="720" y1="24.0" y2="24.0" stroke="#D3D9DA"/>
+<text x="60.0" y="28.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$10M</text>
+<text x="113.3" y="466.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2013</text>
+<text x="200.0" y="466.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2015</text>
+<text x="286.7" y="466.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2017</text>
+<text x="373.3" y="466.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2019</text>
+<text x="460.0" y="466.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2021</text>
+<text x="546.7" y="466.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2023</text>
+<text x="633.3" y="466.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2025</text>
+<rect x="70" y="364.3" width="650" height="40.5" fill="#B7BFC4" opacity=".35"/>
+<path d="M720,404.8 L728,404.8 L736,423.5 L740,423.5" fill="none" stroke="#66707C" stroke-width="1"/>
+<text x="744.0" y="427.5" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >Whole chicken  $4.50</text>
+<path d="M720,385.9 L728,385.9 L736,399.6 L740,399.6" fill="none" stroke="#66707C" stroke-width="1"/>
+<text x="744.0" y="403.6" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >Chicken breast, pork  ~$9</text>
+<path d="M720,372.4 L728,372.4 L736,371.8 L740,371.8" fill="none" stroke="#66707C" stroke-width="1"/>
+<text x="744.0" y="375.8" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >Ground beef  $15.60</text>
+<path d="M720,364.3 L728,364.3 L736,344.8 L740,344.8" fill="none" stroke="#66707C" stroke-width="1"/>
+<text x="744.0" y="348.8" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >Beef, all retail  $21.30</text>
+<text x="744.0" y="314.8" font-size="12" fill="#1B2430" text-anchor="start" font-weight="700" class="" >Conventional meat,</text>
+<text x="744.0" y="329.8" font-size="12" fill="#1B2430" text-anchor="start" font-weight="700" class="" >US retail, mid-2026</text>
+<polyline points="113.3,62.3 243.3,167.9 286.7,186.2 330.0,229.6 503.3,259.8 633.3,379.2" fill="none" stroke="#B3324F" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 6" opacity="1"/>
+<circle cx="113.3" cy="62.3" r="6" fill="#B3324F"/>
+<text x="125.3" y="56.3" font-size="12" fill="#1B2430" text-anchor="start" font-weight="400" class="" >2013: first cultivated burger, ~$330k for one patty</text>
+<circle cx="243.3" cy="167.9" r="6" fill="#B3324F"/>
+<text x="255.3" y="159.9" font-size="12" fill="#1B2430" text-anchor="start" font-weight="400" class="" >2016: Memphis Meats beef meatball</text>
+<circle cx="286.7" cy="186.2" r="6" fill="#B3324F"/>
+<text x="298.7" y="200.2" font-size="12" fill="#1B2430" text-anchor="start" font-weight="400" class="" >2017: Memphis Meats chicken</text>
+<circle cx="330.0" cy="229.6" r="6" fill="#B3324F"/>
+<text x="342.0" y="221.6" font-size="12" fill="#1B2430" text-anchor="start" font-weight="400" class="" >2018: Memphis Meats, ~$1,700/lb</text>
+<circle cx="503.3" cy="259.8" r="6" fill="#B3324F"/>
+<text x="515.3" y="251.8" font-size="12" fill="#1B2430" text-anchor="start" font-weight="400" class="" >2022: Wildtype salmon, food cost</text>
+<line x1="633.3" x2="633.3" y1="373.4" y2="384.0" stroke="#B3324F" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+<circle cx="633.3" cy="379.2" r="6" fill="#F2F4F3" stroke="#B3324F" stroke-width="2.5"/>
+<text x="619.3" y="383.2" font-size="12" fill="#1B2430" text-anchor="end" font-weight="400" class="" >2025: claimed cost of raw cell paste, $10–15/kg</text>
+<text x="619.3" y="398.2" font-size="11.5" fill="#B3324F" text-anchor="end" font-weight="600" class="" >not finished meat, so not comparable to retail prices</text>
+<rect x="653.3" y="334.1" width="12" height="12" fill="#F2F4F3" stroke="#B3324F" stroke-width="2.5" transform="rotate(45 659.3 340.1)"/>
+<text x="645.3" y="344.1" font-size="12" fill="#1B2430" text-anchor="end" font-weight="400" class="" >2025: Vow retail spread, ~$54/kg (40% cultivated)</text>
+<rect x="114.00000000000196" y="250.7454494336405" width="300" height="62" fill="#F2F4F3" opacity=".9"/>
+<circle cx="122.00000000000196" cy="266.7454494336405" r="5" fill="#B3324F"/><text x="134.0" y="270.7" font-size="12" fill="#1B2430" text-anchor="start" font-weight="400" class="" >Reported R&amp;D or production cost</text>
+<circle cx="122.00000000000196" cy="286.7454494336405" r="5" fill="#F2F4F3" stroke="#B3324F" stroke-width="2"/><text x="134.0" y="290.7" font-size="12" fill="#1B2430" text-anchor="start" font-weight="400" class="" >Claimed, not independently audited</text>
+<rect x="118.00000000000196" y="302.7454494336405" width="8" height="8" fill="#F2F4F3" stroke="#B3324F" stroke-width="2" transform="rotate(45 122.00000000000196 306.7454494336405)"/><text x="134.0" y="310.7" font-size="12" fill="#1B2430" text-anchor="start" font-weight="400" class="" >Retail price of a finished product</text>
+<text x="70" y="492" font-size="11" fill="#66707C">Log scale: each gridline is 10× the one below. Points measure different things; not a like-for-like series. Conventional: BLS via FRED, 2026.</text>
+</svg></div><div class="mob"><svg viewBox="0 0 400 470" role="img" aria-label="Reported cultivated meat costs fall from about 2.3 million dollars per kilogram in 2013 to a claimed 10 to 15 dollars for raw cell paste in 2025, near the band of US retail meat prices.">
+<line x1="48" x2="296" y1="400.0" y2="400.0" stroke="#D3D9DA"/><text x="42.0" y="404.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$1</text>
+<line x1="48" x2="296" y1="290.9" y2="290.9" stroke="#D3D9DA"/><text x="42.0" y="294.9" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$100</text>
+<line x1="48" x2="296" y1="181.7" y2="181.7" stroke="#D3D9DA"/><text x="42.0" y="185.7" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$10k</text>
+<line x1="48" x2="296" y1="72.6" y2="72.6" stroke="#D3D9DA"/><text x="42.0" y="76.6" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$1M</text>
+<text x="64.5" y="420.0" font-size="12.5" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2013</text>
+<text x="130.7" y="420.0" font-size="12.5" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2017</text>
+<text x="196.8" y="420.0" font-size="12.5" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2021</text>
+<text x="262.9" y="420.0" font-size="12.5" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2025</text>
+<rect x="48" y="327.5" width="248" height="36.8" fill="#B7BFC4" opacity=".4"/>
+<text x="304.0" y="309.5" font-size="12.5" fill="#1B2430" text-anchor="start" font-weight="700" class="" >US retail</text>
+<text x="304.0" y="323.5" font-size="12.5" fill="#1B2430" text-anchor="start" font-weight="700" class="" >meat</text>
+<text x="304.0" y="339.5" font-size="12" fill="#66707C" text-anchor="start" font-weight="400" class="" >Beef $21</text>
+<text x="304.0" y="376.4" font-size="12" fill="#66707C" text-anchor="start" font-weight="400" class="" >Chicken $4.50</text>
+<polyline points="64.5,52.8 114.1,148.9 130.7,165.5 147.2,205.0 213.3,232.5 262.9,341.1" fill="none" stroke="#B3324F" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 6" opacity="1"/>
+<circle cx="64.5" cy="52.8" r="5.5" fill="#B3324F"/>
+<circle cx="114.1" cy="148.9" r="5.5" fill="#B3324F"/>
+<circle cx="130.7" cy="165.5" r="5.5" fill="#B3324F"/>
+<circle cx="147.2" cy="205.0" r="5.5" fill="#B3324F"/>
+<circle cx="213.3" cy="232.5" r="5.5" fill="#B3324F"/>
+<circle cx="262.9" cy="341.1" r="6" fill="#F2F4F3" stroke="#B3324F" stroke-width="2.5"/>
+<text x="74.5" y="56.8" font-size="12.5" fill="#1B2430" text-anchor="start" font-weight="400" class="" >2013 burger, ~$330k</text>
+<text x="124.1" y="140.9" font-size="12.5" fill="#1B2430" text-anchor="start" font-weight="400" class="" >Memphis Meats 2016–18</text>
+<text x="205.3" y="254.5" font-size="12.5" fill="#1B2430" text-anchor="end" font-weight="400" class="" >Wildtype 2022</text>
+<rect x="267.9" y="300.5" width="10" height="10" fill="#F2F4F3" stroke="#B3324F" stroke-width="2.5" transform="rotate(45 272.9 305.5)"/>
+<text x="260.9" y="299.5" font-size="12" fill="#1B2430" text-anchor="end" font-weight="400" class="" >Vow retail, 40% cells</text>
+<text x="250.9" y="371.1" font-size="12" fill="#B3324F" text-anchor="end" font-weight="700" class="" >2025 claim: raw cell paste,</text>
+<text x="250.9" y="386.1" font-size="12" fill="#B3324F" text-anchor="end" font-weight="700" class="" >not finished meat</text>
+<text x="48" y="458" font-size="11.5" fill="#66707C">$ per kg, log scale. Not a like-for-like series.</text>
+</svg></div></figure>
+<div class="plain"><span class="lbl">In plain terms: what these numbers measure</span><p>The cultivated points are not a clean series. Early figures are research costs for tiny batches, and the lowest, a company-reported cost for raw cell mass, hasn't been independently audited. The retail point is a product that is 40% cultivated cells. The log scale means each gridline is ten times the one below, so the line has fallen about five orders of magnitude.</p></div>
+<div class="lead">
+<p>Two things stand out. Cultivated costs are falling from far above, and conventional meat is rising from below. US beef prices are up 57% since 2020 as drought shrank the national cattle herd to its smallest in 75 years. Like gas plants in the energy chart, the incumbent is getting more expensive at the same time the challenger is getting cheaper.</p>
+</section>
+
+<section>
+<h2 id="s2">What cheap batteries unlocked</h2>
+<p class="sub">Falling prices didn't create one market. They opened a sequence of them, each larger and more price-sensitive than the last.</p>
+<figure class="blue"><figcaption>Battery prices and the markets they opened, 1990–2026</figcaption><div class="scroll"><svg viewBox="0 0 920 560" role="img" aria-label="Battery pack prices from 2010 to 2025 on a log scale, falling from about 1,400 to 108 dollars per kilowatt hour, with stationary storage at 70. Below, a timeline of markets the falling prices unlocked: consumer electronics from 1991, electric vehicles from 2008, home storage from 2015, and grid storage from 2017.">
+<line x1="70" x2="890" y1="300.0" y2="300.0" stroke="#D3D9DA"/>
+<text x="60.0" y="304.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$50</text>
+<line x1="70" x2="890" y1="248.1" y2="248.1" stroke="#D3D9DA"/>
+<text x="60.0" y="252.1" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$100</text>
+<line x1="70" x2="890" y1="196.3" y2="196.3" stroke="#D3D9DA"/>
+<text x="60.0" y="200.3" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$200</text>
+<line x1="70" x2="890" y1="127.7" y2="127.7" stroke="#D3D9DA"/>
+<text x="60.0" y="131.7" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$500</text>
+<line x1="70" x2="890" y1="75.9" y2="75.9" stroke="#D3D9DA"/>
+<text x="60.0" y="79.9" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$1,000</text>
+<line x1="70" x2="890" y1="24.0" y2="24.0" stroke="#D3D9DA"/>
+<text x="60.0" y="28.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >$2,000</text>
+<text x="70.0" y="18.0" font-size="12" fill="#1B2430" text-anchor="start" font-weight="600" class="" >Lithium-ion pack price, $ per kWh (log scale)</text>
+<rect x="70" y="24" width="443.2" height="276" fill="#B7BFC4" opacity=".18"/>
+<text x="291.6" y="75.9" font-size="12" fill="#1B2430" text-anchor="middle" font-weight="600" class="" >Before 2010:</text>
+<text x="291.6" y="91.9" font-size="12" fill="#1B2430" text-anchor="middle" font-weight="400" class="" >costs fell steeply as laptops and</text>
+<text x="291.6" y="107.9" font-size="12" fill="#1B2430" text-anchor="middle" font-weight="400" class="" >phones scaled, from a much higher base</text>
+<text x="291.6" y="123.9" font-size="11" fill="#66707C" text-anchor="middle" font-weight="400" class="" >(not plotted: earlier data uses a different measure)</text>
+<polyline points="513.2,48.8 535.4,68.4 557.6,84.0 579.7,94.5 601.9,103.4 624.1,135.9 646.2,155.5 668.4,177.2 690.5,192.3 712.7,202.9 734.9,213.0 757.0,217.8 779.2,212.5 801.4,223.5 823.5,237.7 845.7,242.4" fill="none" stroke="#1E6FD0" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<text x="521.2" y="40.8" font-size="12" fill="#1E6FD0" text-anchor="start" font-weight="600" class="" >2010: ~$1,400</text>
+<text x="847.7" y="232.4" font-size="12" fill="#1E6FD0" text-anchor="middle" font-weight="600" class="" >$108</text>
+<circle cx="845.7" cy="274.8" r="5" fill="#1E6FD0"/>
+<text x="835.7" y="292.8" font-size="12" fill="#1E6FD0" text-anchor="end" font-weight="700" class="" >Stationary storage packs: $70</text>
+<polygon points="92.2,358 878.9,350 878.9,366" fill="#1E6FD0" opacity="0.25"/>
+<circle cx="92.2" cy="358" r="4" fill="#1E6FD0"/>
+<text x="102.2" y="346.0" font-size="12.5" fill="#1B2430" text-anchor="start" font-weight="700" class="" >Consumer electronics, from 1991</text>
+<text x="102.2" y="380.0" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >Laptops, phones, cameras: buyers pay a premium for portability</text>
+<polygon points="468.9,406 878.9,398 878.9,414" fill="#1E6FD0" opacity="0.4"/>
+<circle cx="468.9" cy="406" r="4" fill="#1E6FD0"/>
+<text x="458.9" y="404.0" font-size="12.5" fill="#1B2430" text-anchor="end" font-weight="700" class="" >Electric vehicles, from 2008</text>
+<text x="458.9" y="419.0" font-size="11.5" fill="#66707C" text-anchor="end" font-weight="400" class="" >Roadster on ~6,800 laptop cells; 20M+ EVs sold in 2025</text>
+<polygon points="624.1,454 878.9,446 878.9,462" fill="#1E6FD0" opacity="0.55"/>
+<circle cx="624.1" cy="454" r="4" fill="#1E6FD0"/>
+<text x="614.1" y="452.0" font-size="12.5" fill="#1B2430" text-anchor="end" font-weight="700" class="" >Home storage, from 2015</text>
+<text x="614.1" y="467.0" font-size="11.5" fill="#66707C" text-anchor="end" font-weight="400" class="" >Powerwall; US home installs up 51% in 2025</text>
+<polygon points="668.4,502 878.9,494 878.9,510" fill="#1E6FD0" opacity="0.7"/>
+<circle cx="668.4" cy="502" r="4" fill="#1E6FD0"/>
+<text x="658.4" y="500.0" font-size="12.5" fill="#1B2430" text-anchor="end" font-weight="700" class="" >Grid storage, from 2017</text>
+<text x="658.4" y="515.0" font-size="11.5" fill="#66707C" text-anchor="end" font-weight="400" class="" >Hornsdale, then 112 GW added worldwide in 2025</text>
+<line x1="70" x2="890" y1="536" y2="536" stroke="#66707C"/>
+<line x1="70.0" x2="70.0" y1="536" y2="541" stroke="#66707C"/>
+<text x="70.0" y="556.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >1990</text>
+<line x1="180.8" x2="180.8" y1="536" y2="541" stroke="#66707C"/>
+<text x="180.8" y="556.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >1995</text>
+<line x1="291.6" x2="291.6" y1="536" y2="541" stroke="#66707C"/>
+<text x="291.6" y="556.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2000</text>
+<line x1="402.4" x2="402.4" y1="536" y2="541" stroke="#66707C"/>
+<text x="402.4" y="556.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2005</text>
+<line x1="513.2" x2="513.2" y1="536" y2="541" stroke="#66707C"/>
+<text x="513.2" y="556.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2010</text>
+<line x1="624.1" x2="624.1" y1="536" y2="541" stroke="#66707C"/>
+<text x="624.1" y="556.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2015</text>
+<line x1="734.9" x2="734.9" y1="536" y2="541" stroke="#66707C"/>
+<text x="734.9" y="556.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2020</text>
+<line x1="845.7" x2="845.7" y1="536" y2="541" stroke="#66707C"/>
+<text x="845.7" y="556.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2025</text>
+</svg></div><p class="hint">Swipe sideways to see the full chart</p></figure>
+
+
+<div class="lead">
+<p>Grid storage is now the fastest-growing part of the market. In the US, 57.6 GWh were installed in 2025, four times the total of three years earlier. Texas is on track to overtake California as the largest US storage market in 2026. Battery makers that built factories for EVs are retooling lines for grid storage: Korean battery maker LG Energy Solution is converting a Michigan EV battery plant to make 30 GWh of storage a year.</p>
+</div>
+<div class="callout blue"><span class="lbl">The key insight</span><p>This is the classic pattern of disruptive innovation: a new technology starts in markets the incumbent can't serve, improves on the revenue they bring in, then moves into the mainstream. Laptop buyers funded the factories. Those factories' cells powered the first Tesla. EV volume pushed costs low enough for the grid. No stage had to wait for the final price.</p></div>
+</section>
+
+<section>
+<h2 id="s3">How <span style="color:var(--blue)">batteries</span> pulled it off, and what it means for <span style="color:var(--red);white-space:nowrap">lab-grown meat</span></h2>
+<p class="sub">Technology alone didn't bend the curve. Five forces stacked on top of each other. For each, here's how it worked for batteries, where else it has happened, and what it would take for cultivated meat.</p>
+<article class="force2"><h3>1. A learning curve that rewards volume</h3><div class="grid">
+<div class="bat"><p class="batlbl">How batteries did it</p><p>Every doubling of cumulative lithium-ion production has cut unit costs by roughly a fifth. That relationship, known as a learning curve or Wright&#x27;s law, held for three decades because battery making is a repeatable factory process: bigger plants, better yields, cheaper materials, and better chemistry all compound with volume.</p><p class="else"><b>Also seen in:</b> solar panels (roughly 20% cheaper per doubling for four decades), semiconductors, and industrial fermentation, where amino acids like lysine are now made at million-tonne scale for about a dollar a kilogram.</p></div>
+<div class="formeat"><div class="hd"><span class="t">What it means for cultivated meat</span><span class="badge b-part">Showing signs</span></div><p>Cultivated meat costs have collapsed in a decade, mostly from engineering rather than volume: cheaper feed, cells that need fewer additives, and tanks designed for food instead of medicine. That is encouraging, because it means the curve hasn&#x27;t yet been driven by scale at all.</p><p>The open question is whether animal cells behave like batteries or like pharmaceuticals. Biopharma did ride a learning curve: antibody production costs fell from thousands of dollars per gram to tens. But they have plateaued around $50–100 per gram, still thousands of times too expensive for food. The industries that reached commodity prices in bioreactors use microbes, which grow far faster and more robustly than animal cells.</p></div>
+</div></article><article class="force2"><h3>2. Beachhead markets that pay for the next step</h3><div class="grid">
+<div class="bat"><p class="batlbl">How batteries did it</p><p>Batteries never had to be cheap enough for the grid on day one. They started where buyers paid a premium for something new. Laptops and phones needed portable power, and that revenue built the factories.</p><p>China added a second kind of beachhead: the state as buyer. Its 2009 program put electric buses and taxis into government fleets before consumers were ready, giving manufacturers like BYD, now one of the world&#x27;s largest EV makers, guaranteed early demand.</p><p class="else"><b>Also seen in:</b> solar, whose first customers were satellites, then oil platforms, telecom relays and calculators; and lab-grown diamonds, which spent decades as industrial abrasives before becoming jewelry.</p></div>
+<div class="formeat"><div class="hd"><span class="t">What it means for cultivated meat</span><span class="badge b-part">Partial</span></div><p>This is cultivated meat&#x27;s biggest structural gap. Batteries offered something new (portability). Cultivated meat mostly offers the same thing at a higher price. Its strongest early markets are ones where conventional supply is scarce or banned (foie gras, bluefin tuna), where buyers care less about naturalness (pet food), or where the product is invisible (cultivated fat blended into other foods).</p><p>The battery precedent suggests two shortcuts: sell profitably at each step down the cost curve rather than waiting for parity, and use institutional buyers such as militaries or public food programs as the equivalent of China&#x27;s bus fleets.</p></div>
+</div></article><article class="force2"><h3>3. Demand that pulls, not just pushes</h3><div class="grid">
+<div class="bat"><p class="batlbl">How batteries did it</p><p>Cheap solar created the market for storage. Once panels flooded the grid at midday, power became nearly worthless at noon and expensive at 7 p.m., and batteries could profit from moving it. Data centers then added fast-growing demand that gas turbines, now on multi-year backlogs, could not meet quickly. Energy shocks, from Russia&#x27;s invasion of Ukraine to the 2026 conflict in the Middle East, added a security premium on top.</p><p class="else"><b>Also seen in:</b> COVID vaccines, where urgency plus guaranteed buyers compressed a decade of scale-up into a year; and the 1970s oil shocks, which produced fuel-economy standards that roughly doubled car efficiency over the following decades.</p></div>
+<div class="formeat"><div class="hd"><span class="t">What it means for cultivated meat</span><span class="badge b-part">Building</span></div><p>Global meat demand keeps rising (the UN expects 13% more by 2032), and protein has become a priority for GLP-1 users and fitness-minded consumers. But demand for meat is not the same as demand for cultivated meat. The pull here is indirect: it comes from the incumbent getting more expensive and less reliable, which we look at in detail below.</p></div>
+</div></article><article class="force2"><h3>4. A sponsor with patience and a strategic motive</h3><div class="grid">
+<div class="bat"><p class="batlbl">How batteries did it</p><p>China treated EVs and batteries as a national priority: to cut dependence on imported oil, leapfrog foreign automakers it could never beat on combustion engines, and create industrial jobs. CSIS, a Washington think tank, estimates government support of at least $230 billion between 2009 and 2023, nearly a fifth of the value of all EVs sold over that period. Around 200 EV makers competed, and most lost. The survivors became world leaders.</p><p>Western battery startups funded mainly by venture capital often failed in the same period: A123 Systems went bankrupt in 2012 and Sweden&#x27;s Northvolt in 2024.</p><p class="else"><b>Also seen in:</b> Taiwan's TSMC, spun out of a state research institute in 1987; France's state-led nuclear buildout.</p></div>
+<div class="formeat"><div class="hd"><span class="t">What it means for cultivated meat</span><span class="badge b-no">Mostly missing</span></div><p>All cultivated meat investment through 2024 totaled about $3 billion, roughly what China spent supporting EVs in a single slow year. Venture funding peaked near $1 billion in 2021 and fell to $74 million in 2025. Venture capital expects returns in 7–10 years; batteries took 30.</p><p>Sponsors are starting to appear outside the US. China&#x27;s 2026–30 plan folds new proteins into its food-security strategy, and Singapore, the Netherlands and Gulf states have funded the sector. Food security for import-dependent countries is the closest analogue to China&#x27;s oil-security motive for EVs.</p></div>
+</div></article><article class="force2"><h3>5. Rules that reward the new technology</h3><div class="grid">
+<div class="bat"><p class="batlbl">How batteries did it</p><p>Market design mattered as much as subsidies. Texas runs an energy-only power market that pays generously during shortages, so batteries earn money on price spikes, and its fast interconnection process lets them get built quickly. Texas has installed more solar and storage than any other state over the past three years, with no mandate. Federal storage tax credits also survived the 2025 cuts to wind and solar credits. China, meanwhile, required many new solar and wind farms to add batteries.</p><p class="else"><b>Also seen in:</b> Germany's feed-in tariffs, which guaranteed prices for solar power; and US shale, where private mineral rights let wildcatters move fast once federal research had proven the technique.</p></div>
+<div class="formeat"><div class="hd"><span class="t">What it means for cultivated meat</span><span class="badge b-no">Hostile in places</span></div><p>Approval pathways now exist in Singapore, the US, Australia and elsewhere, which took years to build. But seven US states, including Texas, ban sales outright, the EU has banned meat-related names for alternatives, and Italy banned cultivated meat altogether. Rules can block a technology for a long time, as margarine laws did for decades, but history suggests they rarely hold forever once the price gap gets large.</p></div>
+</div></article>
+<h3 class="mini">Scorecard</h3>
+<div class="scroll"><table class="data"><thead><tr><th>Force</th><th>Batteries had</th><th>Cultivated meat today</th><th>Status</th><th>What would change it</th></tr></thead><tbody><tr><td>Learning curve</td><td>Factory process; ~20% cheaper per doubling</td><td>Fast cost drops so far; unproven at volume</td><td><span class="badge b-part">Showing signs</span></td><td>Audited costs at 10,000-liter-plus scale</td></tr><tr><td>Beachheads</td><td>Premium for portability, then fleets</td><td>Luxury, pet food, invisible ingredients</td><td><span class="badge b-part">Partial</span></td><td>A profitable ingredient business</td></tr><tr><td>Demand pull</td><td>Cheap solar, data centers, energy security</td><td>Rising protein demand, pricier beef</td><td><span class="badge b-part">Building</span></td><td>Sustained scarcity in conventional meat</td></tr><tr><td>Sponsor</td><td>China, about $230bn over 15 years</td><td>About $3bn total, mostly VC</td><td><span class="badge b-no">Mostly missing</span></td><td>A state treating protein as security</td></tr><tr><td>Rules</td><td>Market design rewarded storage</td><td>Approvals exist; bans spreading</td><td><span class="badge b-no">Hostile in places</span></td><td>Court rulings, trade rules, procurement</td></tr></tbody></table></div>
+<p class="fine">Batteries had all five by the late 2010s. Cultivated meat has partial versions of three. The biggest gaps are friendly rules and a patient sponsor, and a patient sponsor is the one that mattered most for batteries.</p>
+</section>
+
+<section>
+<h2 id="s4">The technology, in five problems</h2>
+<p class="sub">Cultivated meat isn't one technology. It's five problems that each have to be solved cheaply, at the same time.</p>
+<div class="keystat red wide"><b>$40,000 → $10–15 per kg</b><p>Reported cost of cultivated cell mass, from Memphis Meats (now UPSIDE Foods) in 2016, to the best company claims in 2025. Parity with commodity meat likely needs a few dollars per kilogram, at scale, audited.</p></div>
+<article class="tcard"><div class="top"><h3>Cells</h3><span class="badge b-part">Early commercial for birds and fish</span></div><p class="what">Getting animal cells that keep dividing</p><div class="strip"><div><span class="k">Then</span><span class="v">Primary cells</span><span class="n">Stop dividing; need repeated biopsies</span></div><div><span class="k">Now</span><span class="v">Immortal lines</span><span class="n">Some made without genetic engineering</span></div><div><span class="k">Needed</span><span class="v">Fast beef and pork</span><span class="n">Cow cells double in ~2 days; birds in ~1</span></div></div><div class="why"><p><b>Promising:</b> Spontaneously immortalized lines that grow floating in liquid. Companies now pick species that grow easily (quail, chicken, fish) rather than the meats people eat most.</p><p><b>Still hard:</b> Beef and pork, the biggest markets, still come from slow-growing cell types.</p></div></article><article class="tcard"><div class="top"><h3>Feed</h3><span class="badge b-part">Proven cheap in pilots, not yet at volume</span></div><p class="what">The nutrient broth cells grow in</p><div class="strip"><div><span class="k">Then</span><span class="v">$378 / liter</span><span class="n">Off-the-shelf research medium</span></div><div><span class="k">Now</span><span class="v">Under $1 / liter</span><span class="n">Reported by several companies</span></div><div><span class="k">Needed</span><span class="v">~$0.25 / liter</span><span class="n">Good Food Institute (industry nonprofit) estimate</span></div></div><div class="why"><p><b>Promising:</b> Removing the most expensive ingredients entirely; making growth factors cheaply in microbes and even tobacco plants; using food-grade instead of pharma-grade inputs.</p><p><b>Still hard:</b> Bulk amino acids are needed in large volumes, and their price depends on volume that doesn&#x27;t exist yet.</p></div></article><article class="tcard"><div class="top"><h3>Tanks</h3><span class="badge b-part">Pilot to early commercial</span></div><p class="what">The bioreactors cells grow in</p><div class="strip"><div><span class="k">Then</span><span class="v">2,000 liters</span><span class="n">Typical pilot tank, early 2020s</span></div><div><span class="k">Now</span><span class="v">20,000–22,000 L</span><span class="n">Built by Australian startup Vow for under $1M</span></div><div><span class="k">Needed</span><span class="v">100,000 L+</span><span class="n">Lysine plants run 500,000-liter fermenters</span></div></div><div class="why"><p><b>Promising:</b> Vow&#x27;s food-grade tank was designed by former SpaceX engineers in 14 weeks. In 2026 French startup Parima ran a tonne-scale batch in it at 99% lower cost than its earlier runs.</p><p><b>Still hard:</b> Animal cells grow slowly, so a single contaminating microbe can ruin a weeks-long run. Bigger tanks raise the stakes.</p></div></article><article class="tcard"><div class="top"><h3>Structure</h3><span class="badge b-no">Lab to pilot</span></div><p class="what">Turning a cell slurry into meat</p><div class="strip"><div><span class="k">Then</span><span class="v">Thin strands</span><span class="n">The 2013 burger was assembled from lab-grown strips</span></div><div><span class="k">Now</span><span class="v">Thin-cut steak</span><span class="n">One beef product approved; most is unstructured</span></div><div><span class="k">Needed</span><span class="v">Thick, marbled cuts</span><span class="n">At scale and at food prices</span></div></div><div class="why"><p><b>Promising:</b> Mixing cells into plant-based matrices instead of growing them on scaffolds, as cultivated beef startup Aleph Farms now does; mycoprotein frameworks for fish fillets.</p><p><b>Still hard:</b> UPSIDE Foods, one of the first US companies approved to sell cultivated meat, was still making its whole-cut chicken in 2-liter flasks. Nobody has grown thick, vascularized tissue cheaply.</p></div></article><article class="tcard"><div class="top"><h3>Product</h3><span class="badge b-part">Niche commercial</span></div><p class="what">Something people actually buy</p><div class="strip"><div><span class="k">Then</span><span class="v">100% cultivated</span><span class="n">R&amp;D showcases costing thousands per bite</span></div><div><span class="k">Now</span><span class="v">3–40% cells</span><span class="n">Hybrids at luxury prices in a few markets</span></div><div><span class="k">Needed</span><span class="v">Everyday prices</span><span class="n">Nuggets, dumplings, ground meat</span></div></div><div class="why"><p><b>Promising:</b> Co-manufacturing: Vow now makes products for other brands in its tanks, the way chip foundries make chips for many designers.</p><p><b>Still hard:</b> Selling volume requires approvals market by market, and the biggest US meat state currently bans sales.</p></div></article>
+<div class="pair">
+<div><h3>The case it scales</h3><p>Costs have already beaten the limits skeptics set in 2021, by wide margins on feed and cell density. Purpose-built food-grade tanks cost a fraction of pharma equipment. Tonne-scale runs are now happening, and leading companies say they are near profitability on each unit sold.</p><p>None of this required a breakthrough in science, only engineering. That is the pattern batteries followed.</p></div>
+<div><h3>The case it doesn't</h3><p>Animal cells grow slowly, damage easily and are vulnerable to contamination, which makes very large, very clean tanks expensive. The cheapest inputs only get cheap once volume exists. The best cost figures are unaudited claims for raw cell mass, not finished meat.</p><p>Industries that reached commodity prices in bioreactors, like amino acids, use microbes, not animal cells.</p></div>
+</div>
+</section>
+
+<section>
+<h2 id="s5">Tailwinds and headwinds</h2>
+<p class="sub">Three forces acting on cultivated meat right now that the five forces above don't fully capture, and what the battery story suggests about each.</p>
+<div class="sigblock"><div><p class="kind tw">Tailwind</p><h3>Scarcity that lasts, not just spikes</h3></div><div><p>The headline shocks get attention. New World screwworm, a flesh-eating parasite, was confirmed in a Texas calf in June 2026, and the US had already closed live cattle imports from Mexico. The bigger force is slower: drought has shrunk the US cattle herd to its smallest in 75 years, and rebuilding takes years because ranchers must hold back heifers to breed. US beef prices are up 57% since 2020.</p><p class="lesson"><b>The battery lesson:</b> Acute shocks, like oil spikes in the 1970s, in 2022 and again in 2026, create bursts of interest that fade when prices fall. What made batteries inevitable was sustained, structural demand from electrification and data centers, plus policies that outlasted the spikes. The 1970s oil shocks mattered because they produced fuel-economy rules that stayed. For meat, a lasting supply problem matters more than any single outbreak.</p></div></div><div class="sigblock"><div><p class="kind tw">Tailwind</p><h3>Protein demand is rising, and getting more specific</h3></div><div><p>Global meat consumption is projected to grow 13% by 2032. Demand is also becoming more particular: GLP-1 users need more protein in smaller portions, and fitness-minded buyers want high protein with less fat. Blending cultivated cells or fat with plant or fungal protein makes it possible to tune protein, fat and fiber in ways a conventional cut cannot.</p><p class="lesson"><b>The battery lesson:</b> Data centers didn't just add demand, they added a specific kind of demand (fast to build, available on short notice) that incumbent gas plants couldn't supply quickly. Batteries won share by solving the specific need first.</p></div></div>
+<div class="sigblock"><div><p class="kind hw">Headwind</p><h3>The chicken-and-egg input problem</h3></div><div><p>Engineer David Humbird, whose skeptical 2021 analysis is still the most cited critique of the industry, makes a point that still stands: the price of amino acids, growth factors and food-grade equipment depends on market volume, so none of it gets cheap until people are already eating cultivated meat at scale. Someone has to build supply before demand exists.</p><p class="lesson"><b>The battery lesson:</b> China built lithium refining and cathode capacity ahead of demand, then sold into the market it created. Whoever builds the input supply chain for cultivated meat will likely capture the same leverage.</p></div></div>
+</section>
+
+<section>
+<h2 id="s6">Consumer sentiment: the force batteries never faced</h2>
+<p class="sub">Nobody asks where their electrons come from. Meat is bought by billions of people, and it carries culture, place and identity.</p>
+<div class="lead">
+<p>This may be the single biggest difference between the two stories. Many people today would never eat "lab-grown" meat, and for many of them the objection isn't price or taste. It's principle. Fewer than half of consumers have even heard of cultivated meat, and only a small share say they would try it.</p>
+<p>The resistance is also political. Texas shows the split clearly. The same state leads the country in batteries and bans cultivated meat. Batteries paid landowners lease income, added to county tax bases and changed nothing about anyone's daily life. Cultivated meat threatens an industry that defines rural identity and asks people to change something intimate about how they eat. Layer on the wider current against "ultra-processed" food and toward "natural" eating, and cultivated meat is swimming against several cultural tides at once.</p>
+</div>
+<div class="callout red"><span class="lbl">Why this matters for the curve</span><p>For batteries, crossing price parity was enough, because the buyers were rational and invisible. For meat, price parity is necessary but probably not sufficient. Something else has to shift too.</p></div>
+<h3 class="mini">What has overridden food identity before</h3>
+<div class="precs"><article class="prec"><h3>Margarine</h3><p class="verdict">Price won</p><p>Dairy states banned or restricted it for decades (Wisconsin until 1967). It won on price anyway.</p></article><article class="prec"><h3>Food irradiation</h3><p class="verdict">Stigma won</p><p>FDA-approved for decades, yet consumer fear kept adoption tiny. Approval is not adoption.</p></article><article class="prec"><h3>Pasteurization</h3><p class="verdict">Regulation flipped it</p><p>Resisted as unnatural, then mandated after milk-borne disease outbreaks. Purity rules can become a tailwind.</p></article><article class="prec"><h3>GMOs</h3><p class="verdict">Split by market</p><p>Largely rejected in Europe; quietly accepted as everyday ingredients in the US.</p></article><article class="prec"><h3>IVF</h3><p class="verdict">Normalized</p><p>From &#x27;test-tube babies&#x27; to routine medicine within a generation.</p></article><article class="prec"><h3>Lab-grown diamonds</h3><p class="verdict">Price won</p><p>A heavily marketed &#x27;natural&#x27; incumbent lost younger buyers on value.</p></article></div>
+</section>
+
+<section>
+<h2 id="s7">Putting it together: a projected curve</h2>
+<p class="sub">An illustrative sketch, not a forecast. Which branch we end up on depends on whether costs keep falling at commercial scale, whether a patient sponsor emerges, and whether products can reach shoppers without forcing an identity choice.</p>
+<figure class="red"><figcaption>Three scenarios for cultivated meat's share of the meat market (illustrative)</figcaption><div class="scroll"><svg viewBox="0 0 920 470" role="img" aria-label="Illustrative projection of cultivated meat adoption from 2015 to 2050 with three scenarios: bull reaching mainstream share in the 2040s, base reaching a meaningful share mostly as an ingredient around 2040, and bear plateauing as a niche. Below, a timeline of product phases.">
+<line x1="150" x2="770" y1="320.0" y2="320.0" stroke="#D3D9DA"/>
+<text x="138.0" y="324.0" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >Novelty</text>
+<line x1="150" x2="770" y1="232.1" y2="232.1" stroke="#D3D9DA"/>
+<text x="138.0" y="236.1" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >Niche</text>
+<line x1="150" x2="770" y1="144.2" y2="144.2" stroke="#D3D9DA"/>
+<text x="138.0" y="148.2" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >Meaningful (~1%)</text>
+<line x1="150" x2="770" y1="56.4" y2="56.4" stroke="#D3D9DA"/>
+<text x="138.0" y="60.4" font-size="12" fill="#66707C" text-anchor="end" font-weight="400" class="" >Mainstream (10%+)</text>
+<polyline points="150.0,315.6 154.4,315.6 158.9,315.6 163.3,315.6 167.7,315.6 172.1,315.6 176.6,315.6 181.0,315.6 185.4,315.6 189.9,315.6 194.3,315.6 198.7,315.6 203.1,315.6 207.6,315.6 212.0,315.6 216.4,315.6 220.9,315.6 225.3,315.6 229.7,315.6 234.1,315.6 238.6,314.7 243.0,314.6 247.4,314.5 251.9,314.3 256.3,314.2 260.7,314.0 265.1,313.9 269.6,313.7 274.0,313.4 278.4,313.2 282.9,312.9 287.3,312.7 291.7,312.3 296.1,312.0 300.6,311.6 305.0,311.1 309.4,310.7 313.9,310.1 318.3,309.5 322.7,308.9 327.1,308.1 331.6,307.3 336.0,306.5 340.4,305.5 344.9,304.4 349.3,303.2 353.7,301.9 358.1,300.5 362.6,298.9 367.0,297.2 371.4,295.3 375.9,293.3 380.3,291.0 384.7,288.6 389.1,285.9 393.6,283.0 398.0,279.9 402.4,276.5 406.9,272.8 411.3,268.9 415.7,264.7 420.1,260.2 424.6,255.4 429.0,250.3 433.4,245.0 437.9,239.4 442.3,233.5 446.7,227.3 451.1,220.9 455.6,214.4 460.0,207.6 464.4,200.7 468.9,193.6 473.3,186.5 477.7,179.4 482.1,172.2 486.6,165.1 491.0,158.1 495.4,151.2 499.9,144.4 504.3,137.9 508.7,131.5 513.1,125.3 517.6,119.4 522.0,113.8 526.4,108.4 530.9,103.4 535.3,98.6 539.7,94.1 544.1,89.9 548.6,86.0 553.0,82.3 557.4,78.9 561.9,75.8 566.3,72.9 570.7,70.2 575.1,67.8 579.6,65.5 584.0,63.5 588.4,61.6 592.9,59.9 597.3,58.3 601.7,56.9 606.1,55.6 610.6,54.4 615.0,53.3 619.4,52.3 623.9,51.4 628.3,50.6 632.7,49.9 637.1,49.3 641.6,48.7 646.0,48.1 650.4,47.6 654.9,47.2 659.3,46.8 663.7,46.5 668.1,46.1 672.6,45.8 677.0,45.6 681.4,45.3 685.9,45.1 690.3,44.9 694.7,44.8 699.1,44.6 703.6,44.5 708.0,44.3 712.4,44.2 716.9,44.1 721.3,44.0 725.7,43.9 730.1,43.9 734.6,43.8 739.0,43.7 743.4,43.7 747.9,43.6 752.3,43.6 756.7,43.5 761.1,43.5 765.6,43.5 770.0,43.4" fill="none" stroke="#B3324F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  opacity="1"/>
+<polyline points="150.0,315.6 154.4,315.6 158.9,315.6 163.3,315.6 167.7,315.6 172.1,315.6 176.6,315.6 181.0,315.6 185.4,315.6 189.9,315.6 194.3,315.6 198.7,315.6 203.1,315.6 207.6,315.6 212.0,315.6 216.4,315.6 220.9,315.6 225.3,315.6 229.7,315.6 234.1,315.6 238.6,314.6 243.0,314.5 247.4,314.4 251.9,314.3 256.3,314.2 260.7,314.0 265.1,313.9 269.6,313.7 274.0,313.5 278.4,313.3 282.9,313.0 287.3,312.7 291.7,312.4 296.1,312.1 300.6,311.8 305.0,311.4 309.4,310.9 313.9,310.5 318.3,309.9 322.7,309.4 327.1,308.7 331.6,308.0 336.0,307.3 340.4,306.4 344.9,305.5 349.3,304.5 353.7,303.5 358.1,302.3 362.6,301.0 367.0,299.6 371.4,298.1 375.9,296.4 380.3,294.7 384.7,292.7 389.1,290.7 393.6,288.5 398.0,286.1 402.4,283.5 406.9,280.8 411.3,278.0 415.7,274.9 420.1,271.7 424.6,268.3 429.0,264.8 433.4,261.1 437.9,257.3 442.3,253.3 446.7,249.3 451.1,245.1 455.6,240.8 460.0,236.5 464.4,232.1 468.9,227.7 473.3,223.3 477.7,219.0 482.1,214.6 486.6,210.4 491.0,206.2 495.4,202.1 499.9,198.2 504.3,194.3 508.7,190.7 513.1,187.1 517.6,183.7 522.0,180.5 526.4,177.5 530.9,174.6 535.3,171.9 539.7,169.4 544.1,167.0 548.6,164.8 553.0,162.7 557.4,160.8 561.9,159.0 566.3,157.4 570.7,155.9 575.1,154.5 579.6,153.2 584.0,152.0 588.4,150.9 592.9,149.9 597.3,149.0 601.7,148.2 606.1,147.4 610.6,146.7 615.0,146.1 619.4,145.5 623.9,145.0 628.3,144.5 632.7,144.1 637.1,143.7 641.6,143.3 646.0,143.0 650.4,142.7 654.9,142.4 659.3,142.2 663.7,142.0 668.1,141.8 672.6,141.6 677.0,141.4 681.4,141.3 685.9,141.1 690.3,141.0 694.7,140.9 699.1,140.8 703.6,140.7 708.0,140.6 712.4,140.6 716.9,140.5 721.3,140.4 725.7,140.4 730.1,140.3 734.6,140.3 739.0,140.2 743.4,140.2 747.9,140.2 752.3,140.1 756.7,140.1 761.1,140.1 765.6,140.1 770.0,140.0" fill="none" stroke="#B3324F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5" opacity="1"/>
+<polyline points="150.0,315.6 154.4,315.6 158.9,315.6 163.3,315.6 167.7,315.6 172.1,315.6 176.6,315.6 181.0,315.6 185.4,315.6 189.9,315.6 194.3,315.6 198.7,315.6 203.1,315.6 207.6,315.6 212.0,315.6 216.4,315.6 220.9,315.6 225.3,315.6 229.7,315.6 234.1,315.6 238.6,315.2 243.0,315.2 247.4,315.1 251.9,315.1 256.3,315.0 260.7,314.9 265.1,314.9 269.6,314.8 274.0,314.6 278.4,314.5 282.9,314.4 287.3,314.2 291.7,314.0 296.1,313.8 300.6,313.6 305.0,313.3 309.4,313.0 313.9,312.7 318.3,312.3 322.7,311.9 327.1,311.4 331.6,310.9 336.0,310.3 340.4,309.7 344.9,308.9 349.3,308.1 353.7,307.2 358.1,306.2 362.6,305.1 367.0,303.9 371.4,302.6 375.9,301.1 380.3,299.6 384.7,297.9 389.1,296.0 393.6,294.1 398.0,292.0 402.4,289.8 406.9,287.4 411.3,285.0 415.7,282.4 420.1,279.8 424.6,277.1 429.0,274.4 433.4,271.7 437.9,268.9 442.3,266.2 446.7,263.5 451.1,260.9 455.6,258.4 460.0,255.9 464.4,253.6 468.9,251.4 473.3,249.3 477.7,247.3 482.1,245.5 486.6,243.8 491.0,242.2 495.4,240.7 499.9,239.4 504.3,238.2 508.7,237.1 513.1,236.1 517.6,235.2 522.0,234.4 526.4,233.7 530.9,233.0 535.3,232.4 539.7,231.9 544.1,231.4 548.6,231.0 553.0,230.6 557.4,230.3 561.9,230.0 566.3,229.7 570.7,229.5 575.1,229.3 579.6,229.1 584.0,229.0 588.4,228.8 592.9,228.7 597.3,228.6 601.7,228.5 606.1,228.4 610.6,228.3 615.0,228.2 619.4,228.2 623.9,228.1 628.3,228.1 632.7,228.0 637.1,228.0 641.6,228.0 646.0,227.9 650.4,227.9 654.9,227.9 659.3,227.9 663.7,227.9 668.1,227.8 672.6,227.8 677.0,227.8 681.4,227.8 685.9,227.8 690.3,227.8 694.7,227.8 699.1,227.8 703.6,227.8 708.0,227.8 712.4,227.8 716.9,227.8 721.3,227.8 725.7,227.8 730.1,227.7 734.6,227.7 739.0,227.7 743.4,227.7 747.9,227.7 752.3,227.7 756.7,227.7 761.1,227.7 765.6,227.7 770.0,227.7" fill="none" stroke="#B7BFC4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 5" opacity="1"/>
+<text x="778.0" y="49.8" font-size="13" fill="#B3324F" text-anchor="start" font-weight="700" class="" >Bull</text>
+<text x="778.0" y="65.8" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >solar path</text>
+<text x="778.0" y="144.7" font-size="13" fill="#B3324F" text-anchor="start" font-weight="700" class="" >Base</text>
+<text x="778.0" y="160.7" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >ingredient path</text>
+<text x="778.0" y="231.7" font-size="13" fill="#66707C" text-anchor="start" font-weight="700" class="" >Bear</text>
+<text x="778.0" y="247.7" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >cellulosic path</text>
+<line x1="344.9" x2="344.9" y1="30" y2="320" stroke="#1B2430" stroke-dasharray="2 4"/>
+<text x="350.9" y="42.0" font-size="12" fill="#1B2430" text-anchor="start" font-weight="700" class="" >Today</text>
+<text x="150.0" y="338.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2015</text>
+<text x="238.6" y="338.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2020</text>
+<text x="327.1" y="338.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2025</text>
+<text x="415.7" y="338.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2030</text>
+<text x="504.3" y="338.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2035</text>
+<text x="592.9" y="338.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2040</text>
+<text x="681.4" y="338.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2045</text>
+<text x="770.0" y="338.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2050</text>
+<rect x="238.6" y="354" width="177.1" height="13" rx="2" fill="#B3324F" opacity="0.18"/>
+<text x="230.6" y="365.0" font-size="11.5" fill="#1B2430" text-anchor="end" font-weight="400" class="" >Luxury &amp; novelty</text>
+<rect x="327.1" y="373" width="159.4" height="13" rx="2" fill="#B3324F" opacity="0.28"/>
+<text x="319.1" y="384.0" font-size="11.5" fill="#1B2430" text-anchor="end" font-weight="400" class="" >Ingredients &amp; pet food</text>
+<rect x="380.3" y="392" width="212.6" height="13" rx="2" fill="#B3324F" opacity="0.38"/>
+<text x="372.3" y="403.0" font-size="11.5" fill="#1B2430" text-anchor="end" font-weight="400" class="" >Hybrids (10–50% cells)</text>
+<rect x="468.9" y="411" width="230.3" height="13" rx="2" fill="#B3324F" opacity="0.48000000000000004"/>
+<text x="460.9" y="422.0" font-size="11.5" fill="#1B2430" text-anchor="end" font-weight="400" class="" >Processed meats</text>
+<rect x="557.4" y="430" width="212.6" height="13" rx="2" fill="#B3324F" opacity="0.5800000000000001"/>
+<text x="549.4" y="441.0" font-size="11.5" fill="#1B2430" text-anchor="end" font-weight="400" class="" >Whole cuts</text>
+<rect x="415.7" y="449" width="354.3" height="13" rx="2" fill="#B3324F" opacity="0.6799999999999999"/>
+<text x="407.7" y="460.0" font-size="11.5" fill="#1B2430" text-anchor="end" font-weight="400" class="" >New categories</text>
+</svg></div><p class="hint">Swipe sideways to see the full chart</p></figure>
+<div class="lead">
+<p>The <b>bull case</b> follows solar: costs keep falling at scale, a state sponsor commits, and processed cultivated meat reaches parity in the 2030s. The <b>base case</b> follows the invisible-ingredient path: cultivated cells and fat become a valuable minority ingredient in hybrid products, with fungal and plant proteins carrying most of the volume. The <b>bear case</b> follows cellulosic ethanol, where costs stall at near-pharmaceutical levels and the product stays a luxury niche no matter how much money goes in.</p>
+</div>
+<h3 class="mini">Hockey sticks have long handles</h3>
+<p class="sub" style="margin-bottom:16px">Years from first commercial sale to mass-market takeoff. Cultivated meat is in year six.</p>
+<figure><figcaption>From first sale to inflection</figcaption><div class="scroll"><svg viewBox="0 0 920 300" role="img" aria-label="Timeline comparing years from first commercial sale to mass-market inflection: lithium-ion about 29 years, solar about 40, lab-grown diamonds about 14, mycoprotein 41 years and still niche, cultivated meat in year 6.">
+<line x1="190.0" x2="190.0" y1="20" y2="266" stroke="#D3D9DA"/>
+<text x="190.0" y="286.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >1970</text>
+<line x1="282.0" x2="282.0" y1="20" y2="266" stroke="#D3D9DA"/>
+<text x="282.0" y="286.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >1980</text>
+<line x1="374.0" x2="374.0" y1="20" y2="266" stroke="#D3D9DA"/>
+<text x="374.0" y="286.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >1990</text>
+<line x1="466.0" x2="466.0" y1="20" y2="266" stroke="#D3D9DA"/>
+<text x="466.0" y="286.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2000</text>
+<line x1="558.0" x2="558.0" y1="20" y2="266" stroke="#D3D9DA"/>
+<text x="558.0" y="286.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2010</text>
+<line x1="650.0" x2="650.0" y1="20" y2="266" stroke="#D3D9DA"/>
+<text x="650.0" y="286.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2020</text>
+<line x1="742.0" x2="742.0" y1="20" y2="266" stroke="#D3D9DA"/>
+<text x="742.0" y="286.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2030</text>
+<line x1="834.0" x2="834.0" y1="20" y2="266" stroke="#D3D9DA"/>
+<text x="834.0" y="286.0" font-size="12" fill="#66707C" text-anchor="middle" font-weight="400" class="" >2040</text>
+<text x="178.0" y="43.0" font-size="13" fill="#1B2430" text-anchor="end" font-weight="700" class="" >Lithium-ion batteries</text>
+<line x1="383.2" x2="650.0" y1="38" y2="38" stroke="#1E6FD0" stroke-width="7" stroke-linecap="round" />
+<circle cx="383.2" cy="38" r="5" fill="#F2F4F3" stroke="#1E6FD0" stroke-width="2.5"/>
+<circle cx="650.0" cy="38" r="7" fill="#1E6FD0"/>
+<text x="664.0" y="42.0" font-size="12.5" fill="#1E6FD0" text-anchor="start" font-weight="700" class="" >~29 years</text>
+<text x="383.2" y="58.0" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >Sony launch to EV and grid boom</text>
+<text x="178.0" y="89.0" font-size="13" fill="#1B2430" text-anchor="end" font-weight="700" class="" >Solar power</text>
+<line x1="245.2" x2="604.0" y1="84" y2="84" stroke="#1E6FD0" stroke-width="7" stroke-linecap="round" />
+<circle cx="245.2" cy="84" r="5" fill="#F2F4F3" stroke="#1E6FD0" stroke-width="2.5"/>
+<circle cx="604.0" cy="84" r="7" fill="#1E6FD0"/>
+<text x="618.0" y="88.0" font-size="12.5" fill="#1E6FD0" text-anchor="start" font-weight="700" class="" >~40 years</text>
+<text x="245.2" y="104.0" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >Early panels to cheapest new power</text>
+<text x="178.0" y="135.0" font-size="13" fill="#1B2430" text-anchor="end" font-weight="700" class="" >Lab-grown diamonds</text>
+<line x1="512.0" x2="640.8" y1="130" y2="130" stroke="#1E6FD0" stroke-width="7" stroke-linecap="round" />
+<circle cx="512.0" cy="130" r="5" fill="#F2F4F3" stroke="#1E6FD0" stroke-width="2.5"/>
+<circle cx="640.8" cy="130" r="7" fill="#1E6FD0"/>
+<text x="654.8" y="134.0" font-size="12.5" fill="#1E6FD0" text-anchor="start" font-weight="700" class="" >~14 years</text>
+<text x="512.0" y="150.0" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >Gem-quality sales to mass adoption</text>
+<text x="178.0" y="181.0" font-size="13" fill="#1B2430" text-anchor="end" font-weight="700" class="" >Mycoprotein (Quorn)</text>
+<line x1="328.0" x2="705.2" y1="176" y2="176" stroke="#B7BFC4" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 0"/>
+<circle cx="328.0" cy="176" r="5" fill="#F2F4F3" stroke="#B7BFC4" stroke-width="2.5"/>
+<path d="M709.2,169 l10,7 l-10,7 z" fill="#B7BFC4"/>
+<text x="725.2" y="180.0" font-size="12.5" fill="#66707C" text-anchor="start" font-weight="700" class="" >41 years, still waiting</text>
+<text x="328.0" y="196.0" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >Launched 1985, still a niche</text>
+<text x="178.0" y="227.0" font-size="13" fill="#1B2430" text-anchor="end" font-weight="700" class="" >Cultivated meat</text>
+<line x1="650.0" x2="705.2" y1="222" y2="222" stroke="#B3324F" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 0"/>
+<circle cx="650.0" cy="222" r="5" fill="#F2F4F3" stroke="#B3324F" stroke-width="2.5"/>
+<path d="M709.2,215 l10,7 l-10,7 z" fill="#B3324F"/>
+<text x="725.2" y="226.0" font-size="12.5" fill="#B3324F" text-anchor="start" font-weight="700" class="" >Year 6</text>
+<text x="650.0" y="242.0" font-size="11.5" fill="#66707C" text-anchor="start" font-weight="400" class="" >First sale in Singapore, 2020</text>
+</svg></div><p class="hint">Swipe sideways to see the full chart</p></figure>
+<div class="lead"><p>Seen this way, the slow start isn't evidence of failure. Lithium-ion took nearly three decades to reach its grid inflection and solar about four. Lab-grown diamonds did it in about fifteen. Mycoprotein, sold as Quorn since 1985, is a reminder that some technologies never get their takeoff. Cultivated meat's first decade looks like the early stretch of every curve that eventually bent, and it also looks like the early stretch of the ones that didn't. The signposts below are how to tell the difference.</p></div>
+</section>
+
+<section>
+<h2 id="s8">What to watch</h2>
+<p class="sub">If most of these happen, the curve looks like solar. If costs stall at commercial scale, it looks like cellulosic ethanol.</p>
+<ul class="watch"><li><span class="box" aria-hidden="true"></span>Independently audited cost per kg from a 10,000-liter-plus production line</li><li><span class="box" aria-hidden="true"></span>Feed prices confirmed by a third party, not just company or investor reports</li><li><span class="box" aria-hidden="true"></span>Months of continuous production without contamination</li><li><span class="box" aria-hidden="true"></span>China&#x27;s first national approval of cultivated meat</li><li><span class="box" aria-hidden="true"></span>A rising cultivated share inside hybrid products</li><li><span class="box" aria-hidden="true"></span>A major meat company signing a long-term contract to buy cultivated cells</li><li><span class="box" aria-hidden="true"></span>Court rulings on the Texas and Florida bans</li></ul>
+<div class="bluf" style="margin-top:34px"><span class="lbl">The bottom line</span>
+<p>Batteries looked hopeless right up until they didn't. The turn came not from a single breakthrough but from a learning curve, a chain of markets that paid for each step, a patient sponsor and rules that rewarded the new technology, all lining up at once.</p>
+<p>Cultivated meat has the first of those and pieces of the rest. If a state sponsor commits and hybrid products find a profitable foothold, the next decade could look a lot like batteries' last one. If not, it stays a luxury. Either way, the people saying "never" are making the same bet the battery skeptics lost.</p></div>
+</section>
+</div>
+
+<div class="refs">
+<h2 id="s9">Sources</h2>
+<p class="fine">Charts are redrawn approximately from the sources below. Cultivated meat cost points come from company statements and press reports and are not a consistent series. The scenario chart is illustrative.</p>
+<ol><li>BloombergNEF levelized cost data, as charted by the Financial Times (2026)</li><li><a href="https://about.bnef.com/insights/clean-energy/battery-storage-costs-hit-record-lows-as-costs-of-other-clean-power-technologies-increased-bloombergnef/">BloombergNEF, Levelized Cost of Electricity 2026</a></li><li><a href="https://about.bnef.com/insights/clean-energy/energy-storage-enters-the-100-gigawatt-era-three-things-to-know/">BloombergNEF, Energy storage enters the 100-gigawatt era (2026)</a></li><li><a href="https://www.energy-storage.news/bloombergnef-forecasts-158gw-of-global-energy-storage-deployments-in-2026/">Energy-Storage.News on BNEF&#x27;s H1 2026 storage outlook</a></li><li><a href="https://www.ess-news.com/2025/12/09/bnef-lithium-ion-battery-pack-prices-fall-to-108-kwh-stationary-storage-becomes-lowest-price-segment/">BNEF battery price survey 2025, via ESS News</a></li><li><a href="https://qz.com/battery-cost-decline-drivers-explained-081726">Quartz on battery overcapacity (2026)</a></li><li><a href="https://www.iea.org/reports/global-ev-outlook-2026/executive-summary">IEA, Global EV Outlook 2026</a></li><li><a href="https://seia.org/news/united-states-installs-58-gwh-of-new-energy-storage-in-2025/">SEIA and Benchmark, US Energy Storage Market Outlook Q1 2026</a></li><li><a href="https://seia.org/blog/solar-and-battery-storage-are-strengthening-the-texas-grid/">SEIA on solar and storage in Texas</a></li><li><a href="https://www.csis.org/blogs/trustee-china-hand/chinese-ev-dilemma-subsidized-yet-striking">CSIS, The Chinese EV Dilemma: Subsidized Yet Striking</a></li><li><a href="https://www.foodbusinessnews.net/articles/30247-headwinds-continue-to-impede-cultivated-meat-development">Good Food Institute 2026 State of the Industry, via Food Business News</a></li><li><a href="https://www.beefmagazine.com/market-news/lab-grown-meat-still-getting-mixed-reactions">Beef Magazine on cultivated meat funding history</a></li><li><a href="https://www.levervc.com/wp-content/uploads/2025/04/Lever-VC-A-Second-Generation-of-Cultivated-Meat-Companies-Breaks-Through-Projected-Cost-Barriers-4.pdf">Lever VC, A Second Generation of Cultivated Meat Companies (2025)</a></li><li><a href="https://pubmed.ncbi.nlm.nih.gov/34101164/">Humbird, Scale-up economics for cultured meat (2021)</a></li><li><a href="https://agfundernews.com/cultivated-meat-foodtech-fantasy-or-the-future-of-meat-none-of-this-stuff-makes-any-commercial-sense-until-everyones-eating-it">AgFunderNews interview with David Humbird (2025)</a></li><li><a href="https://agfundernews.com/humbird-was-spectacularly-wrong-on-cultivated-meat-economics-says-report-as-vow-predicts-it-will-soon-be-unit-margin-positive">AgFunderNews on Vow&#x27;s 20,000-liter bioreactor</a></li><li><a href="https://www.greenqueen.com.hk/parima-gourmey-vital-meat-lab-grown-cultivated-production-vow/">Green Queen on Parima&#x27;s tonne-scale run with Vow (2026)</a></li><li><a href="https://www.greenqueen.com.hk/vow-cultured-quail-lab-grown-cultivated-meat-australia-forged/">Green Queen on Vow&#x27;s retail launch</a></li><li><a href="https://agfundernews.com/breaking-upside-foods-engages-in-restructuring-to-stay-agile-and-efficient">AgFunderNews on UPSIDE Foods&#x27; production</a></li><li><a href="https://agfundernews.com/exclusive-aleph-farms-raises-30m-unveils-lower-cost-version-of-whole-cut-technology">AgFunderNews on Aleph Farms&#x27; plant-matrix approach</a></li><li><a href="https://www.proteinreport.org/articles/breaking-down-good-food-institutes-essential-8-culture-medium-analysis">GFI, Essential 8 medium cost analysis (via Protein Report)</a></li><li><a href="https://www.sartorius.com/en/knowledge/science-snippets/breaking-the-50-per-gram-barrier-with-process-intensification-1843662">Sartorius on antibody manufacturing costs</a></li><li><a href="https://www.sciencedirect.com/science/article/pii/S0944501322001410">Industrial lysine production (Process Biochemistry, 2022)</a></li><li><a href="https://www.forbes.com/sites/briankateman/2022/06/06/cell-cultured-seafood-isnt-just-an-idea-its-a-reality/">Forbes on Wildtype salmon costs (2022)</a></li><li><a href="https://www.forbes.com/sites/christinatroitino/2017/08/24/memphis-meats-lab-grown-meat-raises-17m-with-help-from-bill-gates-and-richard-branson/">Forbes on Memphis Meats costs (2017)</a></li><li><a href="https://fred.stlouisfed.org/series/APU0000FF1101">FRED / BLS average retail meat prices, 2026</a></li><li><a href="https://www.dallasfed.org/research/swe/2026/swe2612">Dallas Fed on beef prices and the cattle herd (2026)</a></li><li><a href="https://www.farmprogress.com/livestock/cattle-and-beef-markets-unfazed-by-new-world-screwworm">Farm Progress on cattle markets and screwworm (2026)</a></li><li><a href="https://www.congress.gov/crs-product/R47697">Congressional Research Service, Cell-Cultivated Meat: An Overview</a></li><li><a href="https://ij.org/case/texas-cultivate-meat/">Institute for Justice, Texas cultivated meat case</a></li><li><a href="https://www.greenqueen.com.hk/china-15th-five-year-plan-two-sessions-food-protein-climate/">Green Queen on China&#x27;s 15th Five-Year Plan</a></li><li><a href="https://gfi-apac.org/an-exclusive-look-inside-chinas-new-proteins-sector/">GFI APAC on China&#x27;s new proteins sector</a></li><li><a href="https://www.fdiforum.net/mag/featured/cultivated-meat-inches-forward-despite-industry-pullback/">Food &amp; Drink International on GFI consumer findings</a></li><li><a href="https://sentientmedia.org/can-cultivated-meat-succeed/">Sentient on Vow, Wildtype and UPSIDE investors</a></li><li><a href="https://www.forbes.com/sites/garthfriesen/2025/03/22/lab-grown-diamonds-boom-is-it-game-over-for-mined-diamonds/">Forbes on lab-grown diamonds (2025)</a></li><li><a href="https://www.eia.gov/todayinenergy/detail.php?id=37712">EIA on cellulosic biofuel shortfalls</a></li></ol>
+</div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>shehryarsiddiqui.com</p>
+    </footer>
+
+    <!-- sidebar.js handles the mobile left-nav toggle -->
+    <script src="sidebar.js"></script>
+
+  </body>
+</html>

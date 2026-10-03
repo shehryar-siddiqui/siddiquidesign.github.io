@@ -1,0 +1,591 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   style-deepdive.css — styles for the "Deep Dives" writeups.
+
+   Loaded AFTER style.css, only on the deep-dive pages. Everything here is
+   scoped under the .dd class (set on the .page-content div) so it can never
+   leak into the rest of the site. Where a rule here and a rule in style.css
+   both target the same element (h2, p, section...), the .dd version wins
+   because a class selector is more specific than a bare tag selector.
+
+   Design rules, to match the rest of the site:
+     • dark background (#202020) and Georgia serif everywhere
+     • muted grey body text (#aaa), near-white headings (#e8e8e8)
+     • thin #2e2e2e rules instead of heavy borders / drop shadows
+     • small letter-spaced uppercase labels (like the sidebar labels)
+     • colour only as a quiet accent (blue / red / amber / teal, all toned
+       down for a dark background)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ─── 1. Palette (CSS variables) ────────────────────────────────────────────
+   Defining colours once means a chart, a card and a label can all share the
+   same blue. The old light-theme names (--ink2, --ink3, --bg2...) are kept as
+   aliases so the original markup and the inline SVG var(--x) references keep
+   working untouched. */
+.dd {
+  --ink:    #e8e8e8;   /* headings, emphasis */
+  --ink2:   #aaaaaa;   /* normal body text (same as the site's <p>) */
+  --ink3:   #7a7a7a;   /* captions, small print */
+  --muted:  #8a8a8a;   /* secondary text */
+  --rule:   #2e2e2e;   /* thin dividing lines (same as the site) */
+  --panel:  #262626;   /* raised boxes: cards, figures, tables */
+  --paper:  #202020;   /* the page background (used by chart "halos") */
+  --bg:     #202020;
+  --bg2:    #262626;
+  --gray:   #555555;
+
+  --blue:   #6fa3e0;   /* accent: batteries */
+  --red:    #d0687f;   /* accent: cultivated meat / risk */
+  --amber:  #c9954f;   /* accent: AI financing */
+  --teal:   #5fb59c;   /* accent: "in plain terms" + base case */
+
+  --amberbg: #2e2518;
+  --tealbg:  #1d2b27;
+  --redbg:   #2d2023;
+
+  /* Charts and labels inherit the site font instead of the old web fonts */
+  --sans:  Georgia, serif;
+  --serif: Georgia, serif;
+}
+
+
+/* ─── 2. Undo style.css rules that don't suit long articles ─────────────────
+   style.css gives every <section> a 72px bottom margin and every <h2> wide
+   letter-spacing. Articles want tighter, calmer spacing. */
+.dd section { margin: 0; padding: 56px 0 0; }
+.dd h1, .dd h2, .dd h3, .dd h4 { font-weight: normal; color: var(--ink); }
+.dd h2 {
+  font-size: 22px;
+  letter-spacing: 0;
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+.dd h3 { font-size: 18px; line-height: 1.35; margin: 0 0 8px; letter-spacing: 0; }
+.dd p  { font-size: 16px; line-height: 1.8; color: var(--ink2); margin: 0 0 16px; }
+.dd li { color: var(--ink2); }
+.dd b, .dd strong { font-weight: bold; color: var(--ink); }
+.dd em, .dd i { color: inherit; }
+
+/* The AI-financing article has h2s directly in the content (no <section>
+   wrapper), so give them breathing room above. */
+.dd > h2 { margin-top: 52px; }
+
+/* Links inside articles: same near-white as the site, with a faint underline
+   so they're still recognisable as links inside a paragraph. */
+.dd p a, .dd li a {
+  color: var(--ink);
+  border-bottom: 1px solid #555;
+}
+.dd p a:hover, .dd li a:hover { border-bottom-color: var(--ink); text-decoration: none; }
+
+
+/* ─── 3. Article header (title, standfirst, byline) ─────────────────────── */
+.dd .dek,
+.dd .standfirst { font-size: 17px; line-height: 1.7; color: var(--ink2); max-width: 640px; }
+.dd .kicker {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 14px;
+}
+.dd .byline {
+  font-size: 13px;
+  color: var(--ink3);
+  padding-bottom: 28px;
+  margin: 0 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.dd .byline a { color: var(--ink3); border-bottom: 1px solid #444; }
+.dd .byline a:hover { color: var(--ink); }
+
+/* Coloured words inside the batteries title */
+.dd h1 .b { color: var(--blue); }
+.dd h1 .r { color: var(--red); }
+
+/* Section sub-headline (the grey sentence under each h2) */
+.dd .sub { font-size: 16px; color: var(--ink3); max-width: 640px; margin: 0 0 24px; }
+.dd .dek.sub-dek { margin-bottom: 18px; }
+
+/* Intro paragraphs: keep a comfortable reading width even though the
+   content area is wider (charts and tables use the full width). */
+.dd .lead p, .dd .lede, .dd > p, .dd section > p { max-width: 680px; }
+.dd .lede { font-size: 17px; }
+
+/* Small print */
+.dd .fine { font-size: 13px; color: var(--ink3); max-width: 680px; }
+
+/* Numbered section prefix in the AI-financing article ("1  Vendor backstops") */
+.dd h2 .num { color: var(--amber); font-variant-numeric: tabular-nums; margin-right: 6px; }
+
+/* The grey one-line summary under each h2 in the AI-financing article */
+.dd h2 + .dek {
+  font-size: 14px;
+  color: var(--ink3);
+  max-width: none;
+  margin: 0 0 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+
+
+/* ─── 4. Figures and charts ─────────────────────────────────────────────── */
+.dd figure {
+  margin: 28px 0;
+  padding: 20px 20px 14px;
+  background: var(--panel);
+  border-top: 1px solid var(--rule);
+}
+.dd figure.blue { border-top: 2px solid var(--blue); }
+.dd figure.red  { border-top: 2px solid var(--red); }
+.dd figure svg  { width: 100%; height: auto; display: block; }
+.dd figcaption {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink2);
+  margin: 0 0 12px;
+}
+/* In the AI-financing article the caption sits UNDER the chart */
+.dd figure > svg + figcaption {
+  font-size: 13px;
+  color: var(--ink3);
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
+/* Charts wider than the screen scroll sideways instead of shrinking */
+.dd .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.dd .mob  { display: none; }                 /* phone version of a chart */
+.dd .hint { display: none; font-size: 12px; color: var(--ink3); margin: 8px 0 0; }
+
+/* Chart text uses the site font. These beat the font-family="..." attributes
+   written directly inside the SVG markup. */
+.dd svg text { font-family: Georgia, serif; }
+
+/* — Chart colours: dark-theme remap — ————————————————————————————————————
+   The charts were drawn with hard-coded light-theme colours (fill="#66707C").
+   A CSS rule always beats an SVG attribute, so instead of editing hundreds
+   of lines of SVG we simply re-colour them here. Format:
+       original colour  →  dark-theme colour                                */
+
+/* Batteries / meat charts */
+.dd svg [fill="#66707C"]   { fill: #8a8a8a; }     /* muted labels */
+.dd svg [fill="#1B2430"]   { fill: #e8e8e8; }     /* main labels */
+.dd svg [fill="#1E6FD0"]   { fill: #6fa3e0; }     /* blue series */
+.dd svg [fill="#B3324F"]   { fill: #d0687f; }     /* red series */
+.dd svg [fill="#B7BFC4"]   { fill: #777777; }     /* grey bands */
+.dd svg [fill="#F2F4F3"]   { fill: #262626; }     /* label backdrops = figure background */
+.dd svg [stroke="#D3D9DA"] { stroke: #3a3a3a; }   /* grid lines */
+.dd svg [stroke="#66707C"] { stroke: #777777; }
+.dd svg [stroke="#8E979D"] { stroke: #777777; }
+.dd svg [stroke="#B7BFC4"] { stroke: #666666; }   /* grey series lines */
+.dd svg [stroke="#1B2430"] { stroke: #e8e8e8; }
+.dd svg [stroke="#1E6FD0"] { stroke: #6fa3e0; }
+.dd svg [stroke="#B3324F"] { stroke: #d0687f; }
+
+/* AI-financing charts: pale boxes become dark tinted boxes, dark text
+   becomes pale text. The funnel gets progressively warmer going down. */
+.dd svg polygon[fill="#FAEEDA"] { fill: #2f2619; }
+.dd svg polygon[fill="#FAD9AA"] { fill: #3b2d19; }
+.dd svg polygon[fill="#FAC775"] { fill: #4a361a; }
+.dd svg polygon[fill="#F2B152"] { fill: #5a411b; }
+.dd svg polygon[fill="#EF9F27"] { fill: #6b4b1c; }
+.dd svg rect[fill="#FAEEDA"]    { fill: #2f2619; }  /* cloud providers box */
+.dd svg rect[fill="#EEEDFE"]    { fill: #26243d; }  /* chip vendors box */
+.dd svg rect[fill="#E1F5EE"]    { fill: #16302a; }  /* model developers box */
+.dd svg rect[fill="#F1EFE8"]    { fill: #2a2a28; }  /* outside capital box */
+.dd svg rect[fill="#0F6E56"]    { fill: #14614c; }  /* "actual AI revenue" box */
+.dd svg text[fill="#412402"]    { fill: #f5e6cc; }
+.dd svg text[fill="#6b3d09"],
+.dd svg text[fill="#5c3407"]    { fill: #dcb980; }
+.dd svg text[fill="#26215C"]    { fill: #d4d1fa; }
+.dd svg text[fill="#3C3489"]    { fill: #a9a4ec; }
+.dd svg text[fill="#04342C"]    { fill: #bfeadc; }
+.dd svg text[fill="#0F6E56"]    { fill: #66c2a5; }
+.dd svg text[fill="#2C2C2A"]    { fill: #e0dfd8; }
+.dd svg text[fill="#5F5E5A"],
+.dd svg text[fill="#444441"]    { fill: #a8a69f; }
+.dd svg [stroke="#5F5E5A"]      { stroke: #8a8a85; }
+
+
+/* ─── 5. Explainer boxes ─────────────────────────────────────────────────── */
+
+/* "In plain terms: ..." — a quiet teal-tinted note */
+.dd .plain {
+  background: var(--tealbg);
+  border-left: 3px solid var(--teal);
+  padding: 16px 20px;
+  margin: 22px 0;
+  max-width: 720px;
+}
+.dd .plain p { font-size: 15px; line-height: 1.7; margin: 0; color: #b5cfc7; }
+
+/* Small uppercase label used at the top of boxes */
+.dd .lbl {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin: 0 0 8px !important;
+}
+.dd .plain .lbl { color: var(--teal); }
+
+/* "The short version" bullet box at the top of the batteries article */
+.dd .bluf {
+  background: var(--panel);
+  border-top: 2px solid var(--ink);
+  padding: 18px 22px;
+  margin: 24px 0 0;
+  max-width: 720px;
+}
+.dd .bluf p {
+  font-size: 15.5px;
+  line-height: 1.7;
+  margin: 0 0 10px;
+  padding-left: 16px;
+  position: relative;
+}
+.dd .bluf p::before {            /* the little square bullet */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+}
+.dd .bluf p:last-child { margin-bottom: 0; }
+
+/* Highlighted takeaway with a coloured left edge */
+.dd .callout {
+  background: var(--panel);
+  border-left: 3px solid var(--ink3);
+  padding: 16px 20px;
+  margin: 22px 0;
+  max-width: 720px;
+}
+.dd .callout.red  { border-left-color: var(--red); }
+.dd .callout.blue { border-left-color: var(--blue); }
+.dd .callout p { margin: 0; font-size: 15.5px; }
+.dd .callout.red  .lbl { color: var(--red); }
+.dd .callout.blue .lbl { color: var(--blue); }
+
+/* Big-number highlight ("4 years", "$40,000 → $10–15 per kg") */
+.dd .keystat {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 24px;
+  align-items: center;
+  margin: 26px 0;
+  padding: 18px 0;
+  max-width: 720px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.dd .keystat b { font-size: 36px; line-height: 1.1; font-weight: normal; }
+.dd .keystat.blue b { color: var(--blue); }
+.dd .keystat.red  b { color: var(--red); }
+.dd .keystat p { margin: 0; font-size: 15px; }
+.dd .keystat.wide { grid-template-columns: 1fr; }
+.dd .keystat.wide b { font-size: 30px; }
+
+/* AI-financing: single-number stat box */
+.dd .stat {
+  background: var(--panel);
+  border-left: 3px solid var(--amber);
+  padding: 18px 22px;
+  margin: 24px 0;
+  max-width: 720px;
+}
+.dd .stat .big { font-size: 24px; line-height: 1.25; color: var(--ink); margin-bottom: 6px; }
+.dd .stat p { font-size: 14.5px; line-height: 1.7; margin: 0; }
+
+/* AI-financing: "stress test" warning box */
+.dd .stress {
+  background: var(--redbg);
+  border-left: 3px solid var(--red);
+  padding: 16px 20px;
+  margin: 22px 0;
+  max-width: 720px;
+}
+.dd .stress .lbl { color: var(--red); }
+.dd .stress p { font-size: 15px; line-height: 1.7; margin: 0; color: #d9b4bb; }
+
+/* AI-financing: row of small cards */
+.dd .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 24px 0 8px;
+}
+.dd .card { background: var(--panel); border-left: 3px solid var(--amber); padding: 14px 16px; }
+.dd .card .lbl { color: var(--amber); margin-bottom: 6px !important; }
+.dd .card .ttl { font-size: 15.5px; color: var(--ink); line-height: 1.4; margin-bottom: 6px; }
+.dd .card p    { font-size: 14px; line-height: 1.6; margin: 0; }
+.dd .card.base { border-left-color: var(--teal); }
+.dd .card.base .lbl { color: var(--teal); }
+
+/* AI-financing: strengths vs weaknesses, side by side */
+.dd .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+.dd .vs > div { padding: 18px 20px; }
+.dd .vs .up   { background: var(--tealbg); border-top: 2px solid var(--teal); }
+.dd .vs .down { background: var(--redbg);  border-top: 2px solid var(--red); }
+.dd .vs h4 { margin: 0 0 12px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.dd .vs .up h4   { color: var(--teal); }
+.dd .vs .down h4 { color: var(--red); }
+.dd .vs ul { margin: 0; padding-left: 18px; font-size: 14.5px; line-height: 1.65; }
+.dd .vs li { margin-bottom: 6px; }
+.dd .vs .up li   { color: #b5cfc7; }
+.dd .vs .down li { color: #d9b4bb; }
+
+/* AI-financing: numbered ranking list */
+.dd .rank { counter-reset: r; list-style: none; padding: 0; margin: 22px 0; max-width: 720px; }
+.dd .rank li {
+  counter-increment: r;
+  position: relative;
+  padding: 16px 0 16px 46px;
+  margin: 0;
+  border-bottom: 1px solid var(--rule);
+}
+.dd .rank li:first-child { padding-top: 0; }
+.dd .rank li:last-child  { border-bottom: none; }
+.dd .rank li::before {           /* the numbered circle */
+  content: counter(r);
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.dd .rank li:first-child::before { top: -1px; }
+.dd .rank .h { display: block; color: var(--ink); margin-bottom: 2px; }
+.dd .rank .b { font-size: 14.5px; line-height: 1.7; color: var(--ink2); }
+
+/* AI-financing: sources / disclaimer block at the end */
+.dd .foot { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.dd .foot h3 { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin: 0 0 8px; }
+.dd .foot p  { font-size: 13px; line-height: 1.7; color: var(--ink3); margin: 0 0 12px; }
+
+
+/* ─── 6. Tables ──────────────────────────────────────────────────────────── */
+.dd table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+.dd th {
+  text-align: left;
+  font-weight: normal;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  padding: 0 14px 10px 0;
+  border-bottom: 1px solid #444;
+  vertical-align: bottom;
+}
+.dd td {
+  padding: 12px 14px 12px 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  line-height: 1.55;
+  color: var(--ink2);
+}
+.dd td:last-child, .dd th:last-child { padding-right: 0; }
+.dd table.data td:first-child { color: var(--ink); width: 18%; }
+
+/* Small coloured status pills ("Partial", "Mostly missing") */
+.dd .badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 4px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.dd .b-yes  { background: #1e3322; color: #8fcf94; }
+.dd .b-part { background: #3a3017; color: #d9b45a; }
+.dd .b-no   { background: #3a1d25; color: #e08096; }
+
+
+/* ─── 7. Batteries article: the "five forces" blocks ────────────────────── */
+.dd .force2 { margin: 36px 0 0; padding-top: 22px; border-top: 1px solid var(--rule); }
+.dd .force2 h3 { font-size: 20px; margin-bottom: 14px; }
+.dd .force2 .grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 18px; }
+.dd .force2 .bat p { font-size: 15px; line-height: 1.75; }
+.dd .force2 .else  { font-size: 14px; color: var(--ink3); margin: 4px 0 0; }
+.dd .batlbl {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--blue); margin: 0 0 8px !important;
+}
+.dd .formeat { background: var(--panel); border-top: 2px solid var(--red); padding: 16px 18px; }
+.dd .formeat .hd {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 10px; margin-bottom: 10px;
+}
+.dd .formeat .hd .t { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
+.dd .formeat p { font-size: 14.5px; line-height: 1.7; margin: 0 0 10px; }
+.dd .formeat p:last-child { margin-bottom: 0; }
+
+/* "Scorecard" and other small mid-article headings */
+.dd h3.mini { font-size: 18px; margin: 40px 0 8px; }
+
+/* ─── 8. Batteries article: the five technology cards ───────────────────── */
+.dd .tcard { background: var(--panel); margin: 14px 0; padding: 20px 22px; }
+.dd .tcard .top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.dd .tcard h3 { font-size: 19px; }
+.dd .tcard .what { margin: 2px 0 14px; font-size: 13.5px; color: var(--ink3); }
+.dd .strip { display: grid; grid-template-columns: 1fr 1fr 1fr; border: 1px solid var(--rule); }
+.dd .strip div { padding: 12px 14px; border-right: 1px solid var(--rule); }
+.dd .strip div:last-child { border-right: 0; background: #2a2224; }  /* "needed" column */
+.dd .strip .k { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); margin-bottom: 6px; }
+.dd .strip .v { display: block; font-size: 20px; line-height: 1.2; color: var(--ink); }
+.dd .strip .n { display: block; font-size: 13px; line-height: 1.45; color: var(--ink3); margin-top: 4px; }
+.dd .tcard .why { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 14px; }
+.dd .tcard .why p { margin: 0; font-size: 14.5px; line-height: 1.7; }
+
+/* "The case it scales / the case it doesn't" */
+.dd .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 22px 0; }
+.dd .pair > div { background: var(--panel); padding: 18px 20px; }
+.dd .pair h3 { font-size: 17px; }
+.dd .pair p  { font-size: 14.5px; line-height: 1.7; margin: 0 0 8px; }
+
+/* ─── 9. Batteries article: tailwinds/headwinds, precedents, checklist ──── */
+.dd .sigblock {
+  display: grid; grid-template-columns: 220px 1fr; gap: 22px;
+  padding: 22px 0; border-top: 1px solid var(--rule);
+}
+.dd .sigblock h3 { font-size: 18px; }
+.dd .sigblock p { font-size: 15px; line-height: 1.75; }
+.dd .kind { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px !important; }
+.dd .kind.tw { color: var(--blue); }
+.dd .kind.hw { color: var(--red); }
+.dd .lesson { background: #1f2733; padding: 12px 16px; font-size: 14.5px !important; margin: 4px 0 0 !important; }
+
+.dd .precs {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--rule); border: 1px solid var(--rule); margin-top: 16px;
+}
+.dd .prec { background: var(--panel); padding: 18px; }
+.dd .prec h3 { font-size: 17px; }
+.dd .prec p  { font-size: 14px; line-height: 1.65; margin: 0; }
+.dd .verdict { font-size: 11px !important; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red) !important; margin: 4px 0 8px !important; }
+
+/* "What to watch" checklist */
+.dd .watch { list-style: none; padding: 0; margin: 8px 0 0; max-width: 720px; }
+.dd .watch li {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 14px 0; border-bottom: 1px solid var(--rule);
+  font-size: 15.5px; line-height: 1.65;
+}
+.dd .box { flex: none; width: 14px; height: 14px; border: 1px solid #666; margin-top: 7px; }
+
+/* ─── 10. Batteries article: sources list ────────────────────────────────── */
+.dd .refs { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--rule); }
+.dd .refs h2 { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); }
+.dd .refs ol { columns: 2; column-gap: 40px; padding-left: 20px; font-size: 13px; line-height: 1.6; }
+.dd .refs li { margin-bottom: 6px; break-inside: avoid; color: var(--ink3); }
+.dd .refs li a { color: var(--ink3); border-bottom: 1px solid #444; }
+.dd .refs li a:hover { color: var(--ink); }
+
+
+/* ─── 11. Responsive ─────────────────────────────────────────────────────────
+   The site's own layout stacks the sidebar above the content at 768px. The
+   content column is already fairly narrow before that (the sidebar takes a
+   chunk), so multi-column blocks collapse a bit earlier, at 960px. */
+@media (max-width: 960px) {
+  .dd .force2 .grid, .dd .tcard .why, .dd .pair, .dd .sigblock, .dd .vs { grid-template-columns: 1fr; }
+  .dd .strip { grid-template-columns: 1fr; }
+  .dd .strip div { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .dd .strip div:last-child { border-bottom: 0; }
+  .dd .precs { grid-template-columns: 1fr; }
+  .dd .keystat { grid-template-columns: 1fr; }
+  .dd .refs ol { columns: 1; }
+  .dd .scroll table { min-width: 640px; }          /* wide tables scroll sideways */
+}
+
+@media (max-width: 700px) {
+  .dd .scroll svg { min-width: 760px; }            /* charts keep a readable size */
+  .dd .hint { display: block; }                    /* "swipe sideways" hint */
+  .dd .desk { display: none; }                     /* swap desktop chart for phone chart */
+  .dd .mob  { display: block; }
+  .dd figure { padding: 14px 12px 10px; }
+  .dd section { padding-top: 44px; }
+}
+
+
+/* ─── 12. Table of contents (collapsible jump links at the top of each article) ─
+   Built from a native <details>/<summary> pair: the browser handles opening and
+   closing, so no JavaScript is needed. Closed by default; the little arrow on
+   the right rotates when it's open, so it reads as something you can tap. */
+.dd .toc {
+  margin: 0 0 8px;
+  max-width: 720px;
+  border: 1px solid var(--rule);
+}
+.dd .toc summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  cursor: pointer;
+  list-style: none;                 /* hide the browser's default triangle */
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink2);
+}
+.dd .toc summary::-webkit-details-marker { display: none; }  /* same, for Safari */
+.dd .toc summary::after {           /* our own arrow */
+  content: "›";
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ink2);
+  transition: transform 0.25s ease;
+}
+.dd .toc summary:hover, .dd .toc summary:hover::after { color: var(--ink); }
+.dd .toc[open] summary { border-bottom: 1px solid var(--rule); }
+.dd .toc[open] summary::after { transform: rotate(90deg); }
+.dd .toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 14px 20px 16px;
+  columns: 2;                       /* two columns on wide screens */
+  column-gap: 32px;
+}
+.dd .toc li {
+  break-inside: avoid;
+  margin: 0;
+  padding: 3px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.dd .toc li a { color: var(--ink2); border-bottom: 0; }   /* no underline: it's a menu */
+.dd .toc li a:hover { color: var(--ink); text-decoration: none; }
+@media (max-width: 960px) { .dd .toc ol { columns: 1; } }
+
+/* Section headings jumped to via the contents list shouldn't hide under the top edge */
+.dd h2[id] { scroll-margin-top: 24px; }
+
+
+/* ─── 13. One shared column width ───────────────────────────────────────────
+   Paragraphs used to stop at ~680px while charts, tables and cards ran out to
+   the full width, so their right edges didn't line up. Now the WHOLE article
+   is capped at one column width, and every block inside fills that column
+   (their individual max-width limits are switched off below). Change the
+   740px here to make the whole article wider or narrower in one go.
+   (max-width applies to the content box; the 52px left padding from
+   style.css sits outside it.) */
+.dd { max-width: 740px; }
+
+.dd .lead p, .dd .lede, .dd > p, .dd section > p,
+.dd .dek, .dd .standfirst, .dd .sub, .dd .fine,
+.dd .bluf, .dd .callout, .dd .plain, .dd .keystat,
+.dd .stat, .dd .stress, .dd .toc, .dd .rank, .dd .watch {
+  max-width: none;
+}

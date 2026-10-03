@@ -343,35 +343,46 @@ body.section-page {
     flex-direction: column;
   }
 
-  /* Show the left sidebar toggle button on mobile */
+  /* Show the left sidebar toggle on mobile. It's styled as a real button
+     (bordered box, brighter text, big arrow badge) so it's obvious it can be
+     tapped. Previously it was faint grey text with a tiny arrow. */
   .sidebar-toggle {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: none;
-    border: none;
-    border-bottom: 1px solid #2e2e2e;
-    padding: 12px 0;
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    padding: 10px 10px 10px 16px;
     width: 100%;
     cursor: pointer;
     font-family: inherit;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #555555;
+    font-size: 15px;
+    color: #e8e8e8;
   }
 
-  .sidebar-toggle:hover {
-    color: #888888;
+  .sidebar-toggle:hover,
+  .sidebar-toggle[aria-expanded="true"] {
+    border-color: #5a5a5a;
   }
 
-  /* Arrow rotates 90° when the sidebar is open */
+  /* The arrow sits inside a circular badge, so it reads as a control rather
+     than a stray character. */
   .sidebar-toggle-arrow {
-    font-size: 10px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #4a4a4a;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 1;
+    color: #e8e8e8;
     transition: transform 0.25s ease;
   }
 
+  /* Arrow rotates 90° (pointing down) when the sidebar is open */
   .sidebar-toggle[aria-expanded="true"] .sidebar-toggle-arrow {
     transform: rotate(90deg);
   }
@@ -387,6 +398,16 @@ body.section-page {
     overflow: hidden;
     height: 0;
     transition: height 0.3s ease;
+  }
+
+  /* Menu links are easier to read and tap when the menu is open on mobile */
+  .sidebar-nav a {
+    color: #aaaaaa;
+    padding: 8px 0;
+  }
+
+  .sidebar-nav a.active {
+    color: #e8e8e8;
   }
 
   /* Padding inside sidebar is needed when it's open, but only then.
@@ -447,4 +468,12 @@ footer {
 
 footer p {
   color: #444444;
+}
+
+/* Subsection headings on the landing pages (Projects, Writing), e.g. "Builds",
+   "Deep Dives", "Stories". Extra space above separates each list from what's
+   before it. Added via class="list-heading". */
+.list-heading {
+  margin-top: 44px;
+  margin-bottom: 14px;
 }

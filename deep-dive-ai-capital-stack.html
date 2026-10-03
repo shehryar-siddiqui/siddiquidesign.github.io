@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Is Actually Paying for the AI Buildout — Shehryar Siddiqui</title>
+    <meta name="description" content="Roughly $725bn of AI infrastructure spending is planned for 2026. A map of the layers of debt, leases and equity underneath it.">
+    <link rel="stylesheet" href="style.css">
+    <!-- style-deepdive.css: extra styles for the long-form writeups (loaded after style.css) -->
+    <link rel="stylesheet" href="style-deepdive.css">
+  </head>
+
+  <body class="section-page">
+
+    <header>
+      <a href="index.html" class="site-name">Shehryar Siddiqui</a>
+      <nav>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="writing.html">Writing</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="section-body">
+
+        <!-- Mobile toggle button — hidden on desktop, shown via CSS media query. -->
+        <button class="sidebar-toggle" aria-expanded="false" aria-controls="nav-sidebar">
+          <span>Projects</span>
+          <span class="sidebar-toggle-arrow">›</span>
+        </button>
+
+        <aside class="sidebar" id="nav-sidebar">
+          <p class="sidebar-label">Projects</p>
+          <ul class="sidebar-nav">
+            <li><a href="this-website.html">This Website</a></li>
+          </ul>
+          <!-- Deep Dives: longer research writeups -->
+          <p class="sidebar-label" style="margin-top:28px">Deep Dives</p>
+          <ul class="sidebar-nav">
+            <li><a href="deep-dive-batteries-lab-grown-meat.html">Batteries &amp; Lab-Grown Meat</a></li>
+            <li><a href="deep-dive-ai-capital-stack.html" class="active">AI Capital Stack</a></li>
+          </ul>
+        </aside>
+
+        <!-- Article content. "dd" scopes the deep-dive styles in style-deepdive.css. -->
+        <div class="page-content dd">
+
+
+<p class="kicker">AI infrastructure · Capital structure</p>
+<h1>Who is actually paying for the AI buildout</h1>
+<p class="standfirst">Roughly $725bn of AI infrastructure spending is planned for 2026. Most of the public conversation is about chips and models. This is a map of the money underneath them — the layers of debt, leases and equity that fund the buildout, the points where the structure carries the most weight, and where the exposure sits once it leaves the technology sector.</p>
+<p class="byline">Informational analysis by Shehryar Siddiqui (<a href="https://www.linkedin.com/in/shehryar-siddiqui/">LinkedIn</a>) · August 2026 · Not investment advice · Written up with the help of AI</p>
+
+          <!-- Table of contents: a native <details> element, so it opens/closes with no JavaScript.
+               Links jump to each section (ids were added to the h2s below). -->
+          <details class="toc">
+            <summary>Contents</summary>
+            <ol>
+            <li><a href="#s1">01 The demand assumption</a></li>
+            <li><a href="#s2">02 Promises to buy compute</a></li>
+            <li><a href="#s3">03 Company borrowing</a></li>
+            <li><a href="#s4">04 Buildings owned by someone else</a></li>
+            <li><a href="#s5">05 Loans secured by the chips</a></li>
+            <li><a href="#s6">06 Vendor backstops</a></li>
+            <li><a href="#s7">The circular flows</a></li>
+            <li><a href="#s8">The depreciation question</a></li>
+            <li><a href="#s9">Where the structure carries the most weight</a></li>
+            <li><a href="#s10">Where the broader economy is exposed</a></li>
+            <li><a href="#s11">Strengths and weaknesses</a></li>
+            <li><a href="#s12">What to watch</a></li>
+            </ol>
+          </details>
+
+<p class="lede">The financing behind AI infrastructure is not one market. It is at least six distinct pools of capital, each holding a claim on a different asset, arranged in layers. A chip vendor lends to a cloud company. A pension fund owns the building. An insurer holds a loan secured by the servers inside it. A model developer signs a contract to rent all of it for a decade.</p>
+
+<p>Every one of those claims is separately documented and individually reasonable. What links them is that the money to repay all of them comes from the same place: businesses and consumers eventually paying to use AI. That shared dependency, rather than any single instrument, is what makes the structure worth mapping.</p>
+
+<figure>
+<svg viewBox="0 0 720 470" role="img" aria-label="Funnel diagram showing six layers of financial claims narrowing down to actual AI revenue">
+<title>The AI infrastructure capital stack</title>
+<desc>Six stacked bands narrowing downward, from vendor backstops at the widest point to actual AI revenue at the narrowest.</desc>
+
+<polygon points="30,26 690,26 652,86 68,86" fill="#FAEEDA"></polygon>
+<text x="360" y="49" text-anchor="middle" font-size="15" font-weight="600" fill="#412402" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Vendor backstops</text>
+<text x="360" y="70" text-anchor="middle" font-size="13.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">$500bn+ financing platform</text>
+
+<polygon points="68,92 652,92 614,152 106,152" fill="#FAD9AA"></polygon>
+<text x="360" y="115" text-anchor="middle" font-size="15" font-weight="600" fill="#412402" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Loans secured by chips</text>
+<text x="360" y="136" text-anchor="middle" font-size="13.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">$20bn+ outstanding</text>
+
+<polygon points="106,158 614,158 576,218 144,218" fill="#FAC775"></polygon>
+<text x="360" y="181" text-anchor="middle" font-size="15" font-weight="600" fill="#412402" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Buildings owned by investors</text>
+<text x="360" y="202" text-anchor="middle" font-size="13.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">$27bn single campus · $662bn leases</text>
+
+<polygon points="144,224 576,224 538,284 182,284" fill="#F2B152"></polygon>
+<text x="360" y="247" text-anchor="middle" font-size="15" font-weight="600" fill="#412402" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Company borrowing</text>
+<text x="360" y="268" text-anchor="middle" font-size="13.5" fill="#5c3407" font-family="-apple-system,Segoe UI,Roboto,sans-serif">$250bn bonds in 2026</text>
+
+<polygon points="182,290 538,290 500,350 220,350" fill="#EF9F27"></polygon>
+<text x="360" y="313" text-anchor="middle" font-size="15" font-weight="600" fill="#412402" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Promises to buy compute</text>
+<text x="360" y="334" text-anchor="middle" font-size="13.5" fill="#5c3407" font-family="-apple-system,Segoe UI,Roboto,sans-serif">~$600bn through 2030</text>
+
+<line x1="360" y1="356" x2="360" y2="382" stroke="#BA7517" stroke-width="1.5"></line>
+<path d="M354 375 L360 383 L366 375" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+
+<rect x="230" y="388" width="260" height="58" rx="8" fill="#0F6E56"></rect>
+<text x="360" y="411" text-anchor="middle" font-size="15" font-weight="600" fill="#ffffff" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Actual AI revenue today</text>
+<text x="360" y="432" text-anchor="middle" font-size="13.5" fill="#9FE1CB" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Roughly $25bn a year at OpenAI</text>
+</svg>
+<figcaption>Each band is a separate legal claim on a separate asset. All of them are repaid from the cash flow at the base. Figures are 2026 annual flows or total outstanding, as noted per layer below.</figcaption>
+</figure>
+
+<div class="cards">
+  <div class="card"><div class="lbl">Layer 6</div><div class="ttl">Vendor backstops</div><p>The chip maker helps its own customers borrow money to buy its chips, using the chips as security.</p></div>
+  <div class="card"><div class="lbl">Layer 5</div><div class="ttl">Loans secured by chips</div><p>Lenders take the GPUs themselves as collateral, the way a bank takes an aircraft when it lends to an airline.</p></div>
+  <div class="card"><div class="lbl">Layer 4</div><div class="ttl">Buildings owned by investors</div><p>Pension and insurance money owns the data centre. The tech company rents it back rather than buying it.</p></div>
+  <div class="card"><div class="lbl">Layer 3</div><div class="ttl">Company borrowing</div><p>Ordinary corporate bonds. Microsoft, Amazon, Oracle and others borrowing on their own name.</p></div>
+  <div class="card"><div class="lbl">Layer 2</div><div class="ttl">Promises to buy compute</div><p>Multi-year contracts committing an AI lab to purchase a set amount of computing power. Binding, but not debt.</p></div>
+  <div class="card base"><div class="lbl">Layer 1</div><div class="ttl">Actual AI revenue</div><p>What customers pay to use AI products. The only money entering the system from outside it.</p></div>
+</div>
+
+<h2 id="s1"><span class="num">01</span> &nbsp;The demand assumption</h2>
+<p class="dek">Everything above this layer is priced off a forecast, not a track record.</p>
+
+<p>OpenAI is the clearest case because its numbers are the most reported. It booked roughly <strong>$13.1bn of revenue</strong> in its last full year and runs at an annualised rate of about <strong>$20–25bn</strong> today. It is expected to lose somewhere in the mid-teens of billions during 2026.</p>
+
+<p>Against that, the company has told investors it expects to spend around <strong>$600bn on computing through 2030</strong>. That figure is itself a downward revision — earlier headline commitments totalled roughly $1.4tn in nameplate value before the company reset expectations in February 2026. Its stated revenue target for 2030 is approximately <strong>$280bn</strong>.</p>
+
+<div class="stat">
+  <div class="big">~11×</div>
+  <p>Revenue growth required at OpenAI between now and 2030 for its own compute commitments to be self-funding. Every layer of financing above rests on some version of this projection.</p>
+</div>
+
+<p>Three separate numbers are in play and they are routinely conflated in coverage: what is being <em>earned</em> now (roughly $25bn a year), what is being <em>projected</em> (roughly $280bn by 2030), and what is <em>required</em> to service the commitments already signed (roughly $600bn of spending across the same period). The gap between the first and third is the load the rest of the structure carries.</p>
+
+<p>This is not unique to OpenAI. Anthropic, Meta's internal AI effort and the Chinese labs all operate on a version of the same arithmetic. OpenAI is simply the most exposed because it has signed the most.</p>
+
+<h2 id="s2"><span class="num">02</span> &nbsp;Promises to buy compute</h2>
+<p class="dek">Legally binding, economically enormous, and absent from the balance sheet.</p>
+
+<div class="plain">
+  <div class="lbl">In plain terms</div>
+  <p>A purchase commitment is a signed contract to buy a set amount of something over a set number of years. It is not a loan, so it does not appear as debt on the buyer's balance sheet. But it is enforceable, and it appears on the <em>seller's</em> books as contracted future revenue — the industry term is "remaining performance obligations", or RPO.</p>
+</div>
+
+<p>OpenAI's commitments include a $300bn five-year cloud agreement with Oracle, a $38bn agreement with AWS, Azure consumption estimated well above $200bn across its remaining term, and its share of the Stargate venture with SoftBank and Oracle. Anthropic has committed to roughly a million Google TPUs and two gigawatts of AMD hardware.</p>
+
+<p>These contracts are the demand signal that justifies construction. A developer can show a lender a signed ten-year contract and borrow against it. That is how a promise at Layer 2 becomes concrete at Layers 3, 4 and 5.</p>
+
+<h3>What happens if a buyer cannot pay</h3>
+<p>There are three realistic paths, and outright default is the least likely:</p>
+<ul>
+  <li><strong>Renegotiation.</strong> The most common outcome. A seller with a purpose-built data centre and one plausible tenant will generally prefer a smaller live contract to a dead one. Terms get stretched, volumes get cut, pricing gets revisited.</li>
+  <li><strong>Deferral.</strong> The schedule slips to the right. The contract survives on paper but the cash arrives later, which is a problem for anyone who borrowed against the original timing.</li>
+  <li><strong>Default.</strong> The seller writes down its RPO. The buyer's balance sheet is largely unaffected because the obligation was never on it. The damage lands on the seller's credit rating and on whoever lent against that contracted revenue.</li>
+</ul>
+
+<div class="stress">
+  <div class="lbl">Concentration point</div>
+  <p>Oracle carries this risk from three directions simultaneously. It holds roughly $523bn of total remaining performance obligations, of which at least $300bn is OpenAI. It borrowed to build the capacity to serve that contract. And it is delivering into it while free cash flow runs sharply negative. Construction risk, financing risk and counterparty concentration sit in one company.</p>
+</div>
+
+<h2 id="s3"><span class="num">03</span> &nbsp;Company borrowing</h2>
+<p class="dek">Three very different credits are routinely grouped together here. They should not be.</p>
+
+<p>Hyperscalers issued roughly <strong>$194bn</strong> of investment-grade debt in the first half of 2026, with about $250bn expected for the full year — roughly a third of their capital spending. Goldman Sachs projects approximately $400bn in 2027.</p>
+
+<div class="scroll"><table>
+<thead><tr><th style="width:22%">Borrower</th><th style="width:26%">Financial position</th><th>Where it strains if demand softens</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>Hyperscalers</strong><br><span style="color:var(--ink3);font-size:13.5px">Microsoft, Alphabet, Amazon, Meta</span></td>
+  <td>Total leverage 1.3×, net 0.5×. Cash covers 128% of debt. Median rating AA–.</td>
+  <td>Least exposed. They can fund this from operating cash flow and choose not to. If returns disappoint they slow spending, and shareholders absorb it rather than creditors. Their main vulnerability is reputational and equity-side, not credit.</td>
+</tr>
+<tr>
+  <td><strong>Oracle</strong></td>
+  <td>~$130bn debt. FY26 free cash flow around –$23.7bn. Rated BBB–, one notch above high yield.</td>
+  <td>Most exposed of the large caps. It is a levered pure-play on a single counterparty. Its five-year credit default swap spread reached an 18-year high in 2026, and a downgrade to high yield would raise its cost of capital exactly when it needs to refinance construction.</td>
+</tr>
+<tr>
+  <td><strong>Neoclouds</strong><br><span style="color:var(--ink3);font-size:13.5px">CoreWeave, Nebius, Crusoe, Lambda</span></td>
+  <td>CoreWeave: ~$21.6bn debt, roughly 4.8× debt to equity, $34bn of leases off balance sheet. Interest expense tripled year on year to $311m in one quarter.</td>
+  <td>Highest sensitivity. Their creditworthiness is borrowed from their customers — CoreWeave's investment-grade loan rests on a $14.2bn contracted agreement with Meta. If contracts do not renew at similar rates, refinancing becomes difficult quickly. Tens of billions mature between 2026 and 2028, held by a small and overlapping group of lenders.</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>The distinction matters because commentary that treats "AI debt" as a single category tends to either understate the neocloud risk or overstate the hyperscaler risk. They are close to opposite positions.</p>
+
+<h2 id="s4"><span class="num">04</span> &nbsp;Buildings owned by someone else</h2>
+<p class="dek">The most financially intricate layer, and the one carrying the largest off-balance-sheet number.</p>
+
+<div class="plain">
+  <div class="lbl">In plain terms</div>
+  <p>A special purpose vehicle, or SPV, is a company created to do exactly one thing. Investors put equity in, the SPV borrows the rest, and the SPV builds and owns the data centre. The technology company then rents the finished building under a long lease. It controls the site and runs it, but the construction debt sits inside the SPV rather than on its own balance sheet — and the cost shows up as rent rather than as a capital expense.</p>
+</div>
+
+<p>The template is Meta's Hyperion campus in Louisiana. A vehicle named Beignet Investor is owned 80% by funds managed by Blue Owl Capital and 20% by Meta. It raised <strong>$27bn of A+ rated debt and $2.5bn of equity</strong>, arranged by Morgan Stanley, anchored by PIMCO at around $18bn and BlackRock at around $3bn. Meta leases the campus back long-term.</p>
+
+<p>Nothing about this is irregular. Airlines, utilities and property companies have financed assets this way for decades, and a long lease from an investment-grade tenant is a genuinely strong credit. The question is scale and correlation rather than structure.</p>
+
+<div class="stat">
+  <div class="big">$662bn</div>
+  <p>Data centre leases signed by hyperscalers but not yet commenced, according to Moody's. That figure is larger than their combined on-balance-sheet debt.</p>
+</div>
+
+<h3>Why the lease pipeline is a stress point</h3>
+<p>Under lease accounting, a signed lease generally does not become a balance-sheet liability until the lease actually begins — typically when the building is delivered. So a very large pipeline of committed future rent currently sits in footnotes rather than in headline debt figures.</p>
+
+<p>Leases are contracts and do not simply evaporate. But before commencement there is real room to renegotiate, shrink, delay or walk away from a portion of the pipeline, and tenants with strong balance sheets have leverage in those conversations. If AI demand growth disappoints before delivery, some share of that $662bn gets reworked.</p>
+
+<div class="stress">
+  <div class="lbl">Where the loss lands</div>
+  <p>Not with the tenant. A renegotiated or cancelled lease is a problem for the SPV and its lenders — Blue Owl, PIMCO, BlackRock and the insurance and pension money behind them. The party with the weakest balance sheet in the structure is generally not the one that owns the building.</p>
+</div>
+
+<p>Taken together, purchase commitments at Layer 2 and lease commitments at Layer 4 represent well over a trillion dollars of obligations that are economically real, contractually binding, and largely invisible in the headline debt statistics that most coverage cites.</p>
+
+<h2 id="s5"><span class="num">05</span> &nbsp;Loans secured by the chips</h2>
+<p class="dek">A new asset class built on hardware that loses value faster than anything else in the structure.</p>
+
+<div class="plain">
+  <div class="lbl">In plain terms</div>
+  <p>Lenders advance money against the GPUs themselves. If the borrower stops paying, the lender takes the chips. It is the same principle as an aircraft loan or an equipment lease — the difference is how quickly the collateral loses value.</p>
+</div>
+
+<p>More than <strong>$20bn</strong> of loans secured by Nvidia GPUs are outstanding. The landmark transaction is CoreWeave's $8.5bn delayed-draw term loan, closed in March 2026 and rated A3 / A–low. Smaller deals include Nebius at $775m, Lambda at $500m and Crusoe at $425m. JPMorgan projects total data centre securitisation issuance of $30–40bn annually across 2026 and 2027, up from roughly $27bn in 2025.</p>
+
+<p>One detail is worth drawing out: CoreWeave's loan earned an investment-grade rating largely because the collateral package includes a $14.2bn contracted revenue agreement with Meta. The rating reflects Meta's creditworthiness more than it reflects the resale value of the hardware.</p>
+
+<h3>Three sources of strain</h3>
+
+<p><strong>Correlation.</strong> Nvidia now ships a new generation roughly every year, each delivering something like 40–50% better performance per dollar. When a new generation arrives, it does not devalue one lender's collateral — it devalues every lender's collateral on the same day. There is no diversification available within the asset class.</p>
+
+<p><strong>Rental rates.</strong> The cash that services these loans comes from renting the hardware out. H100 rental prices have fallen from $7–10 per hour in early 2024 to roughly $2–4 per hour, with some providers below $2. Revenue per chip has compressed faster than most underwriting assumed.</p>
+
+<p><strong>Resale absorption.</strong> Used H100s currently trade at roughly $6,000–22,000 against $25,000–40,000 new — around 85% below the 2023 peak. Used A100 80GB cards trade at $4,000–9,000 and are expected to decline a further 10–15% through 2026. The secondary market is currently active and genuinely two-sided; buyers are finding older hardware perfectly capable of production inference work.</p>
+
+<p>What that market has never been tested on is a simultaneous mass offload. If several leveraged operators liquidate inventory at the same time — which is precisely what happens if refinancing fails across a correlated group — resale prices set the recovery value for every lender at once. A market that clears comfortably at a trickle behaves differently at a flood.</p>
+
+<h3>The export valve</h3>
+<p>There is a possible relief mechanism for last-generation inventory. In January 2026 the US Bureau of Industry and Security moved H200 and MI325X export licences for China from presumption of denial to case-by-case review, subject to a 25% tariff, a 50% volume cap, third-party testing and know-your-customer requirements.</p>
+
+<p>That creates a large potential buyer for aging hardware. It is not, however, something a lender can underwrite against. The policy is discretionary and reversible, and in the same month Chinese customs authorities blocked H200 shipments from entering the country even after Washington approved them. Geopolitics is not a reliable floor under residual values.</p>
+
+<h2 id="s6"><span class="num">06</span> &nbsp;Vendor backstops</h2>
+<p class="dek">The newest layer, and the one that changes what reported demand actually means.</p>
+
+<p>On 10 August 2026 Nvidia announced non-binding agreements with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to establish financing platforms targeting more than <strong>$500bn</strong> of third-party capital, using AI chips as collateral so that customers can borrow rather than pay upfront.</p>
+
+<p>That sits alongside a commitment of up to $100bn into OpenAI, reported discussions around a guarantee of as much as $250bn for OpenAI data centre leases and roughly $350bn of chip purchase financing, and an arrangement to rent back unused capacity from some neocloud operators if their own demand falls short.</p>
+
+<div class="stress">
+  <div class="lbl">What this layer does and does not do</div>
+  <p>Vendor financing does not create new end demand. It converts a sale the customer could not otherwise fund into a sale the seller has financed. The revenue is recognised, the product ships, and the credit exposure stays inside the system. The practical consequence is that reported demand overstates independently funded demand by whatever share the vendor supplied — and that share is not separately disclosed by anyone.</p>
+</div>
+
+<h3>It is not only the chip vendors</h3>
+<p>The same behaviour now appears at the cloud layer, in a form disclosed in regulatory filings rather than announced in press releases. Google has guaranteed the lease obligations of neocloud operator Fluidstack to its landlords — approximately <strong>$3.2bn at TeraWulf</strong> and <strong>$1.73bn at Cipher Mining</strong> — receiving equity warrants in exchange, amounting to roughly 14% of TeraWulf and 5.4% of Cipher. The capacity supports Anthropic's $50bn data centre partnership with Fluidstack in Texas and New York.</p>
+
+<p>Google has also moved into the leasing structure itself. Blackstone announced a joint venture with Google to sell TPU capacity as a service, committing an initial $5bn of equity with a first 500MW targeted for 2027. Separately, Apollo and Blackstone closed a private credit package in June 2026 structured through a special purpose vehicle that purchases Google TPUs and leases them back to Anthropic.</p>
+
+<div class="stress">
+  <div class="lbl">Three layers in one transaction</div>
+  <p>That last structure combines Layers 4, 5 and 6. Outside investors own the vehicle. The vehicle borrows against the hardware. The hardware is bought from the company that designed it and leased to a company that the same designer separately funds with equity. Apollo and Blackstone are also two of the six firms in Nvidia's $500bn financing platform, which means the same balance sheets are supplying credit on both sides of the accelerator market.</p>
+</div>
+
+<p>None of this is unusual in isolation. Vendor finance has been standard in capital goods, aircraft, telecoms equipment and heavy machinery for a century, and a guarantee priced with equity warrants is a conventional way to charge for credit risk. What is different is the proportion and the concentration. The largest suppliers are now organising credit at a scale comparable to the annual capital spending of their own customer base, and a hyperscaler guaranteeing a third party's rent so that a lab it partly owns can occupy the building is a considerably shorter loop than the term normally describes.</p>
+
+<h2 id="s7">The circular flows</h2>
+<p class="dek">Suppliers own stakes in their customers. Customers own stakes in each other's suppliers.</p>
+
+<p>The clearest illustration of Layer 6's effect is to trace the equity. Chip vendors hold stakes in the model developers who buy their chips. Cloud providers hold stakes in the same model developers who then commit to spend the money back on cloud capacity. Outside capital enters at the most leveraged point in the chain.</p>
+
+<figure>
+<svg viewBox="0 0 960 634" role="img" aria-label="Diagram of circular capital flows between chip vendors, model developers, cloud providers and outside capital">
+<title>Circular financing flows in AI infrastructure</title>
+<desc>Chip vendors and cloud providers both take equity stakes in model developers, who commit compute spending back to cloud providers, who buy chips from the vendors. Outside capital lends into the cloud layer.</desc>
+
+<rect x="30" y="70" width="230" height="132" rx="10" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"></rect>
+<text x="145" y="94" text-anchor="middle" font-size="14.5" font-weight="600" fill="#26215C" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Chip vendors</text>
+<text x="145" y="122" text-anchor="middle" font-size="11.5" fill="#3C3489" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Nvidia · up to $100bn into OpenAI</text>
+<text x="145" y="144" text-anchor="middle" font-size="11.5" fill="#3C3489" font-family="-apple-system,Segoe UI,Roboto,sans-serif">AMD · 160m warrants to OpenAI</text>
+<text x="145" y="166" text-anchor="middle" font-size="11.5" fill="#3C3489" font-family="-apple-system,Segoe UI,Roboto,sans-serif">AMD · up to $5bn into Anthropic</text>
+<text x="145" y="188" text-anchor="middle" font-size="11.5" fill="#3C3489" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Nvidia · $500bn credit platform</text>
+
+<rect x="365" y="70" width="230" height="132" rx="10" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1"></rect>
+<text x="480" y="94" text-anchor="middle" font-size="14.5" font-weight="600" fill="#04342C" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Model developers</text>
+<text x="480" y="122" text-anchor="middle" font-size="11.5" fill="#0F6E56" font-family="-apple-system,Segoe UI,Roboto,sans-serif">OpenAI · ~$25bn revenue run rate</text>
+<text x="480" y="144" text-anchor="middle" font-size="11.5" fill="#0F6E56" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Anthropic · Google, Amazon backed</text>
+<text x="480" y="166" text-anchor="middle" font-size="11.5" fill="#0F6E56" font-family="-apple-system,Segoe UI,Roboto,sans-serif">~$600bn compute committed</text>
+<text x="480" y="188" text-anchor="middle" font-size="11.5" fill="#0F6E56" font-family="-apple-system,Segoe UI,Roboto,sans-serif">through 2030</text>
+
+<rect x="700" y="40" width="230" height="242" rx="10" fill="#FAEEDA" stroke="#EF9F27" stroke-width="1"></rect>
+<text x="815" y="64" text-anchor="middle" font-size="14.5" font-weight="600" fill="#412402" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Cloud providers</text>
+<text x="815" y="88" text-anchor="middle" font-size="11.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Microsoft · ~27% of OpenAI</text>
+<text x="815" y="108" text-anchor="middle" font-size="11.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Amazon · $83bn+ into labs</text>
+<text x="815" y="128" text-anchor="middle" font-size="11.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Google · $40bn+ into Anthropic</text>
+<text x="815" y="148" text-anchor="middle" font-size="11.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Google · $4.9bn lease backstops</text>
+<text x="815" y="168" text-anchor="middle" font-size="11.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Oracle · $300bn OpenAI backlog</text>
+<text x="815" y="188" text-anchor="middle" font-size="11.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">CoreWeave · $21.6bn debt</text>
+<text x="815" y="216" text-anchor="middle" font-size="11.5" font-weight="600" fill="#412402" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Committed back to them:</text>
+<text x="815" y="236" text-anchor="middle" font-size="11.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">$250bn Azure · $38bn AWS</text>
+<text x="815" y="256" text-anchor="middle" font-size="11.5" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">1m Google TPUs · 2GW AMD</text>
+
+<rect x="30" y="430" width="390" height="174" rx="10" fill="#F1EFE8" stroke="#888780" stroke-width="1"></rect>
+<text x="225" y="454" text-anchor="middle" font-size="14.5" font-weight="600" fill="#2C2C2A" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Outside capital</text>
+<text x="225" y="480" text-anchor="middle" font-size="11.5" fill="#5F5E5A" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Blue Owl · 80% of the $27bn Hyperion vehicle</text>
+<text x="225" y="500" text-anchor="middle" font-size="11.5" fill="#5F5E5A" font-family="-apple-system,Segoe UI,Roboto,sans-serif">PIMCO $18bn · BlackRock $3bn</text>
+<text x="225" y="520" text-anchor="middle" font-size="11.5" fill="#5F5E5A" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Blackstone · Apollo · KKR · Brookfield · Goldman</text>
+<text x="225" y="540" text-anchor="middle" font-size="11.5" fill="#5F5E5A" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Blackstone · $5bn Google TPU cloud JV</text>
+<text x="225" y="560" text-anchor="middle" font-size="11.5" fill="#5F5E5A" font-family="-apple-system,Segoe UI,Roboto,sans-serif">Apollo + Blackstone SPV leases TPUs to Anthropic</text>
+<text x="225" y="584" text-anchor="middle" font-size="11.5" font-weight="600" fill="#2C2C2A" font-family="-apple-system,Segoe UI,Roboto,sans-serif">The only money entering from outside</text>
+
+<line x1="263" y1="120" x2="359" y2="120" stroke="#7F77DD" stroke-width="1.5"></line>
+<path d="M353 115 L360 120 L353 125" fill="none" stroke="#7F77DD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<text x="311" y="106" text-anchor="middle" font-size="11" font-weight="600" fill="#3C3489" font-family="-apple-system,Segoe UI,Roboto,sans-serif">equity</text>
+<text x="311" y="140" text-anchor="middle" font-size="11" fill="#3C3489" font-family="-apple-system,Segoe UI,Roboto,sans-serif">$100bn+</text>
+
+<line x1="598" y1="112" x2="694" y2="112" stroke="#1D9E75" stroke-width="1.5"></line>
+<path d="M688 107 L695 112 L688 117" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<text x="646" y="86" text-anchor="middle" font-size="11" font-weight="600" fill="#0F6E56" font-family="-apple-system,Segoe UI,Roboto,sans-serif">compute</text>
+<text x="646" y="100" text-anchor="middle" font-size="11" fill="#0F6E56" font-family="-apple-system,Segoe UI,Roboto,sans-serif">contracts</text>
+
+<line x1="694" y1="180" x2="598" y2="180" stroke="#BA7517" stroke-width="1.5"></line>
+<path d="M604 175 L597 180 L604 185" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<text x="646" y="154" text-anchor="middle" font-size="11" font-weight="600" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">equity</text>
+<text x="646" y="168" text-anchor="middle" font-size="11" fill="#6b3d09" font-family="-apple-system,Segoe UI,Roboto,sans-serif">stakes</text>
+
+<path d="M815 284 L815 352 L152 352 L152 206" fill="none" stroke="#5F5E5A" stroke-width="2"></path>
+<path d="M146 213 L152 205 L158 213" fill="none" stroke="#5F5E5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<text x="480" y="332" text-anchor="middle" font-size="12" font-weight="600" fill="#2C2C2A" font-family="-apple-system,Segoe UI,Roboto,sans-serif">chip purchases close the loop</text>
+
+<path d="M422 516 L880 516 L880 288" fill="none" stroke="#888780" stroke-width="1.5"></path>
+<path d="M875 294 L880 287 L885 294" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<text x="655" y="506" text-anchor="middle" font-size="11.5" font-weight="600" fill="#444441" font-family="-apple-system,Segoe UI,Roboto,sans-serif">debt and project equity</text>
+
+<path d="M92 204 L92 426" fill="none" stroke="#7F77DD" stroke-width="1.5"></path>
+<path d="M87 420 L92 427 L97 420" fill="none" stroke="#7F77DD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<text x="110" y="300" font-size="11" font-weight="600" fill="#3C3489" font-family="-apple-system,Segoe UI,Roboto,sans-serif">organises</text>
+<text x="110" y="314" font-size="11" fill="#3C3489" font-family="-apple-system,Segoe UI,Roboto,sans-serif">$500bn platform</text>
+</svg>
+<figcaption>Purple flows are supplier capital going into customers. Amber flows are cloud providers taking stakes in the developers who buy from them. Grey flows are the money that closes the loop and the outside capital funding it. Google's $4.9bn of lease backstops covers Fluidstack obligations at TeraWulf and Cipher Mining, taken in exchange for equity warrants. Stake percentages and dollar figures are as reported; the Nvidia guarantee discussions were characterised as ongoing rather than signed.</figcaption>
+</figure>
+
+<p>The accounting objection is straightforward: when a supplier funds a customer that immediately spends the money on the supplier's product, revenue is recognised without external economic value having been created. The defence is equally straightforward: pairing long-term offtake agreements with financing is how capital-intensive industries have always been built, and these are minority stakes rather than sales into controlled entities.</p>
+
+<p>Both are accurate. The unresolved question is proportion — what share of chip and cloud revenue traces back to capital supplied by the seller — and no participant discloses it.</p>
+
+<h2 id="s8">The depreciation question</h2>
+<p class="dek">One accounting assumption sits underneath reported earnings, collateral values and loan structures at the same time.</p>
+
+<p>Depreciation is the rate at which an asset's cost is spread across its expected working life. Assume a longer life and annual costs look smaller, so reported profit is higher. Assume a shorter life and the reverse. For AI infrastructure the assumption in question is how long a GPU remains economically productive.</p>
+
+<p>Microsoft and Google depreciate servers over roughly six years. Meta uses five and a half. Amazon shortened a subset from six years to five in 2025, taking a $700m hit to operating income, while Meta lengthened its estimate to five and a half, booking a $2.9bn reduction in depreciation expense.</p>
+
+<p>Those two moves are frequently cited as evidence of disagreement. They are better read as convergence: both companies arrived near five years from opposite starting points. The industry has settled on a five-to-six-year assumption. The question is whether that number is right.</p>
+
+<h3>The case that five to six years is optimistic</h3>
+<ul>
+  <li><strong>Release cadence.</strong> Nvidia now ships a new architecture roughly annually, with each generation delivering something like 40–50% better performance per dollar. A five-year-old chip is four or five generations behind.</li>
+  <li><strong>Observed resale values.</strong> Used H100s trade around 85% below their 2023 peak. Industry estimates put baseline value loss at 60–80% across four to five years, which is difficult to reconcile with a straight-line six-year schedule.</li>
+  <li><strong>Rental compression.</strong> Hourly rates for H100 capacity have fallen roughly 70% from their peak, which shortens the period over which a chip earns economically useful revenue regardless of whether it still functions.</li>
+</ul>
+
+<h3>The case that five to six years is defensible</h3>
+<ul>
+  <li><strong>The CPU precedent.</strong> Amazon extended server lives from three to four years in 2020 as Moore's Law slowed, and the industry eventually converged on six. The current schedules were audited and defended, not invented.</li>
+  <li><strong>The cascade.</strong> Frontier training work occupies the first year or two. After that, chips move to inference, fine-tuning and lower-tier workloads. Buyers on the secondary market are demonstrably running production inference on H100 and A100 hardware today.</li>
+  <li><strong>Power is the binding constraint.</strong> Grid interconnection queues run five to seven years in major markets — roughly seven in Northern Virginia, five in ERCOT and MISO, five and a half in California — and queue-to-operation timelines have lengthened around 60% since 2017. A chip sitting in an energised, hard-won site has a strong reason to keep running past its performance prime, because its replacement has nowhere to plug in. Silicon obsoletes annually; the buildings and substations around it do not.</li>
+</ul>
+
+<p>The defensible case depends on one condition: that inference demand grows quickly enough to absorb aging hardware at prices that still cover the debt attached to it. That is the same assumption identified at Layer 1, arriving from a different direction.</p>
+
+<div class="stat">
+  <div class="big">$176bn+</div>
+  <p>Estimated cumulative earnings impact across 2026–28 if cloud providers reset useful life toward a two-to-three-year replacement reality. The figure is an analyst estimate and methodologies vary, but the direction is not disputed — and because the assumption is shared, a reset would reduce reported earnings, collateral values and securitisation residuals simultaneously.</p>
+</div>
+
+<h2 id="s9">Where the structure carries the most weight</h2>
+<p class="dek">Ranked by how much depends on the assumption, and how little cushion sits behind it.</p>
+
+<ol class="rank">
+<li><span class="h">The demand forecast at Layer 1</span><span class="b">Load-bearing for everything above it. Roughly $25bn of current annual revenue at the largest lab supports commitments an order of magnitude larger. No amount of structuring at higher layers substitutes for this.</span></li>
+<li><span class="h">Neocloud refinancing, 2026–28</span><span class="b">Tens of billions of predominantly chip-secured loans mature in a narrow window, held by a small and overlapping group of lenders, against collateral whose rental yield has already fallen sharply. This is the most concrete near-term deadline in the structure.</span></li>
+<li><span class="h">The useful-life assumption</span><span class="b">A single shared input feeding reported earnings, loan collateral values and securitisation residuals. Any revision moves all three at once, and the evidence supporting the current assumption is contested.</span></li>
+<li><span class="h">Oracle's counterparty concentration</span><span class="b">At least $300bn of a $523bn contracted backlog resting on one customer, funded with debt, delivered while free cash flow runs sharply negative, at one notch above high yield.</span></li>
+<li><span class="h">The uncommenced lease pipeline</span><span class="b">Roughly $662bn of signed but not-yet-started leases, larger than combined on-balance-sheet debt, with the renegotiation risk landing on project lenders rather than on tenants.</span></li>
+<li><span class="h">Hyperscaler balance sheets</span><span class="b">Least strained by a wide margin. At 1.3× leverage with cash covering 128% of debt, these companies can absorb a demand disappointment by slowing spending. The consequence falls on shareholders and suppliers, not creditors.</span></li>
+</ol>
+
+<h2 id="s10">Where the broader economy is exposed</h2>
+<p class="dek">The financing does not stay inside the technology sector. Five channels carry it outward, and they are not equally well understood.</p>
+
+<p>Most discussion of AI infrastructure risk stops at the companies involved. The more useful question is who holds the exposure once it leaves them. The answer is not primarily hedge funds. It is index funds, bond funds, insurance companies, pension plans, electricity ratepayers and the national growth rate — in roughly that order of breadth.</p>
+
+<div class="scroll"><table>
+<thead><tr><th style="width:23%">Channel</th><th style="width:31%">Who carries it</th><th>How it transmits</th></tr></thead>
+<tbody>
+<tr><td><strong>Equity indices</strong></td><td>Anyone with a 401(k), IRA or index fund</td><td>Concentration. A small group of AI-linked companies now dominates index weight and index returns.</td></tr>
+<tr><td><strong>Bond indices</strong></td><td>Anyone holding a total-bond-market or investment-grade fund</td><td>Issuance volume. Technology is now a record share of the corporate bond market.</td></tr>
+<tr><td><strong>Private credit</strong></td><td>Pension plans, life insurers, annuity holders, some retail funds</td><td>Direct lending at Layers 3 to 6, held in illiquid vehicles.</td></tr>
+<tr><td><strong>Electricity bills</strong></td><td>Residential and small-business ratepayers in affected grids</td><td>Grid upgrade costs allocated across the customer base by utility regulators.</td></tr>
+<tr><td><strong>GDP and employment</strong></td><td>Everyone</td><td>AI capital spending is now a large share of measured US growth.</td></tr>
+</tbody>
+</table></div>
+
+<h3>Equity index concentration</h3>
+<p>The seven largest US technology companies reached approximately <strong>35% of S&amp;P 500 market capitalisation</strong> in early June 2026 — the highest concentration in the index's history — before easing to around 32%. The long-run average weight for the seven largest constituents since 1957 is roughly 17%. The previous records were about 26%, set during the 1980 energy boom and again in March 2000. Nvidia alone is now approximately 7.5% of the index.</p>
+
+<div class="stat">
+  <div class="big">~42%</div>
+  <p>Share of the S&amp;P 500's total return in 2025 generated by those seven companies. Forecasts put them at roughly 46% of index earnings growth going forward.</p>
+</div>
+
+<p>This matters for households more than it might appear, because of how Americans own equities. Only about 37% of adults hold securities outside a retirement account. For most people, stock ownership is a target-date fund inside a 401(k), and a target-date fund holds the index. There is no practical way for a typical retirement saver to hold US large-cap equity without holding this concentration.</p>
+
+<p>The circular equity arrangements described earlier interact with this directly. AMD's warrant to OpenAI, for example, vests in tranches tied to both deployment milestones and AMD share-price targets. The value transferred in that commercial agreement depends on the equity market cooperating. Several of the vendor-to-customer investments across the sector share that characteristic: they are denominated in equity whose value is set by the same market that is pricing the buildout's success.</p>
+
+<h3>The bond market</h3>
+<p>This channel receives less attention than the equity one and is arguably more direct. Technology now accounts for a record <strong>10.3% of the US investment-grade bond index</strong>, up from 9% in 2024, and roughly 18% of total US corporate debt issuance in 2026. Hyperscalers issued approximately $244bn of bonds globally through July 2026, more than double the $108bn issued across all of 2025. Morgan Stanley projects $350–400bn of AI-related investment-grade issuance in US markets by year-end.</p>
+
+<p>Estimates from Vontobel suggest AI and data-centre-related bonds could represent 15–20% of most corporate bond indices within five years. The fixed-income sleeve of a standard retirement portfolio is a passive vehicle tracking one of those indices. Exposure accumulates without any allocation decision being made.</p>
+
+<h3>Private credit, pensions and insurance</h3>
+<p>The lenders at Layers 3 through 6 are generally not hedge funds. They are private credit managers, large asset managers and life insurers — vehicles with long-dated, locked-up capital rather than trading books. That distinction matters because it changes how stress expresses itself: not as forced selling, but as illiquidity and delayed marks.</p>
+
+<p>Private sector pension funds are the single largest category of private credit investor, holding roughly 19% of allocations as of February 2026. Life insurers are the other major holder, and account for approximately 82% of industry investment in collateralised loan obligations. Annuities represent nearly two-thirds of the insurance industry's liability reserves, which means a meaningful portion of this is retirement money in a different wrapper.</p>
+
+<div class="stress">
+  <div class="lbl">Already tested</div>
+  <p>Retail access to private credit runs mainly through non-traded business development companies and interval funds, which typically cap withdrawals at about 5% of net asset value per quarter. In the second quarter of 2026 tender requests across several large funds reached roughly 10% of NAV, forcing pro-rata rationing. Investors requested more than $20.8bn from the largest semi-liquid private credit funds in the first quarter alone and received a little over half. Blackstone capped redemptions on its $79bn BCRED fund at 5% in June 2026 after requests exceeded 10%.</p>
+</div>
+
+<p>Those gates functioned as designed and the funds did not fail. The episode is informative rather than alarming: it demonstrates that when holders of illiquid credit want out at the same time, the structure converts a pricing problem into a waiting problem. Most of that redemption pressure was driven by rate expectations rather than by AI credit specifically, and AI exposure is a slice of these portfolios rather than the whole.</p>
+
+<p>The 401(k) channel is opening but is not yet at scale. An executive order in August 2025 directed agencies to review the rules; the Department of Labor proposed a safe-harbour framework for fiduciaries considering alternative assets on 30 March 2026, with comments closing 1 June and a final rule possible by year-end. Large managers have built defined-contribution distribution teams in anticipation. The exposure is prospective rather than realised, which makes it something to monitor rather than something to price today.</p>
+
+<h3>Electricity bills</h3>
+<p>This is the most direct household transmission channel and the only one that does not run through a securities market. When a utility builds generation or transmission capacity to serve a large new customer, a state regulator decides who pays. Absent a dedicated rate class, those costs have historically been spread across all customers.</p>
+
+<div class="stat">
+  <div class="big">$13bn</div>
+  <p>Costs from data centre load additions distributed across ratepayers in the PJM region during the first quarter of 2026 alone, according to the grid's independent market monitor. US residential electricity prices rose 11.5% in 2025.</p>
+</div>
+
+<p>Regulatory response has been rapid. As of June 2026, 24 states had approved at least one large-load tariff designed to make data centres cover their own infrastructure costs. New Jersey passed ratepayer protection legislation on 30 June 2026, and New York enacted a moratorium on permits for large data centres in July. The direction of travel is toward making the cost allocation explicit, but the existing embedded costs remain in the rate base.</p>
+
+<h3>Growth and employment</h3>
+<p>AI-related investment accounted for roughly <strong>74% of the 2.1% annualised US GDP growth recorded in the first quarter of 2026</strong>. AI-related capital formation now runs at approximately 1.5% of GDP, matching or exceeding the peak of the late-1990s telecommunications buildout, and is estimated to contribute around 1.4 percentage points to 2026 growth.</p>
+
+<p>The implication is that a slowdown in this spending would register as a macroeconomic event rather than a sector-specific one. Construction employment, electrical and mechanical trades, equipment manufacturing and regional tax bases are all attached to the buildout. That exposure exists regardless of who holds the debt or how the financing is structured.</p>
+
+<h3>What limits the damage</h3>
+<p>Several features of the current structure constrain how far stress would travel, and they are worth stating alongside the exposures.</p>
+<ul>
+<li>Index concentration is a valuation risk, not a solvency risk. A retirement saver holding a concentrated index experiences a drawdown; they are not subject to margin calls or forced liquidation, and the underlying companies are highly profitable and cash generative.</li>
+<li>Private credit vehicles are diversified across sectors. AI infrastructure is a component of those portfolios, not their entirety.</li>
+<li>Illiquid structures with redemption limits transmit stress slowly. That is frustrating for investors seeking exit but it prevents the fire-sale dynamics that make losses self-reinforcing.</li>
+<li>Ratepayer exposure is being addressed through explicit tariff design in a growing number of states, which shifts new costs toward the customers creating them.</li>
+</ul>
+
+<h2 id="s11">Strengths and weaknesses</h2>
+<p class="dek">What genuinely supports this structure, and what genuinely does not.</p>
+
+<div class="vs">
+<div class="up">
+<h4>Structural strengths</h4>
+<ul>
+<li>Hyperscaler credit quality is real: 1.3× total leverage, cash covering 128% of debt, median AA– rating.</li>
+<li>The collateral is a productive asset generating cash yield, not a financial claim on another financial claim.</li>
+<li>There is no large derivatives layer. Net credit default swap notional on the major technology names is roughly $12.5bn against hundreds of billions of underlying debt.</li>
+<li>Project finance with a leaseback to an investment-grade tenant is a mature, well-understood structure with decades of precedent.</li>
+<li>Headline commitment figures are softer than they appear. OpenAI's own revision from $1.4tn to roughly $600bn demonstrates the flexibility.</li>
+<li>Power scarcity supports asset values. A site with secured grid capacity retains worth even if the hardware inside it ages.</li>
+</ul>
+</div>
+<div class="down">
+<h4>Structural weaknesses</h4>
+<ul>
+<li>Every layer depends on the same demand assumption, so the layers do not diversify one another.</li>
+<li>The collateral is almost perfectly correlated. One product cycle reprices every lender's security simultaneously.</li>
+<li>Novel structures are being rated without a default history to calibrate against.</li>
+<li>Very large obligations sit outside headline debt figures: roughly $662bn of uncommenced leases plus more than a trillion in purchase commitments.</li>
+<li>The share of revenue supported by vendor-supplied capital is not disclosed by any participant.</li>
+<li>Final risk-holders are insurers, pension funds and private credit vehicles that may not be pricing the correlation between layers.</li>
+<li>Counterparty concentration is extreme. A handful of entities underwrite most of the contracted revenue in the system.</li>
+<li>Index concentration is at a record. Households hold this exposure passively, through equity and bond funds, without an allocation decision.</li>
+<li>The buildout now accounts for a large share of measured US growth, so a spending slowdown is a macroeconomic event rather than a sector one.</li>
+</ul>
+</div>
+</div>
+
+<h2 id="s12">What to watch</h2>
+<p class="dek">Observable indicators that would confirm or contradict the picture above.</p>
+<ul>
+<li>Whether any major cloud provider shortens GPU useful life below five years in a quarterly filing.</li>
+<li>Refinancing terms — spreads, not merely completion — on neocloud maturities through 2027.</li>
+<li>Oracle's free cash flow trajectory and credit spreads as the OpenAI backlog converts to delivered revenue.</li>
+<li>Secondary-market GPU pricing during any period when more than one leveraged operator is selling inventory.</li>
+<li>Whether ratings agencies publish a residual-value methodology specific to AI accelerators.</li>
+<li>The ratio of signed-but-uncommenced leases to on-balance-sheet debt in hyperscaler disclosures.</li>
+<li>Any disclosure quantifying vendor-financed revenue as a share of total revenue.</li>
+<li>Contingent liabilities in hyperscaler filings — lease guarantees and backstops given to third-party operators, which sit outside reported debt.</li>
+<li>Technology's weight in investment-grade bond indices, and whether AI-related issuance approaches the projected 15–20% share.</li>
+<li>The final Department of Labor rule on alternative assets in 401(k) plans, and how quickly private credit reaches target-date funds.</li>
+<li>Redemption activity and gate usage at large semi-liquid private credit funds.</li>
+<li>State regulatory decisions on large-load tariffs, which determine whether grid costs sit with data centres or with ratepayers.</li>
+</ul>
+
+<div class="foot">
+<h3>Sources and confidence</h3>
+<p>Figures drawn from company announcements, regulatory filings and reporting by Bloomberg, CNBC, Reuters and the Financial Times are high confidence. Aggregate sector figures — total chip-secured debt outstanding, the uncommenced lease total, and the estimated earnings impact of a depreciation reset — are analyst and research estimates whose methodologies vary and should be read as directional rather than precise. Reported figures relating to Nvidia guarantee discussions with OpenAI were characterised as under discussion and are not confirmed agreements. Rental and resale prices vary substantially by contract length, configuration and vendor. Index concentration, bond index weightings and GDP contribution figures are point-in-time measures that move with markets and with data revisions; the GDP attribution in particular depends on how AI-related investment is defined and estimates differ across sources.</p>
+<h3>Disclaimer</h3>
+<p>This document is an informational analysis of publicly reported financial structures. It is not investment advice, and it does not constitute a recommendation regarding any security. Anyone making investment decisions should consult a qualified financial adviser and review primary filings directly.</p>
+<p style="margin-top:18px;color:#9a9791">Compiled 17 August 2026.</p>
+</div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>shehryarsiddiqui.com</p>
+    </footer>
+
+    <!-- sidebar.js handles the mobile left-nav toggle -->
+    <script src="sidebar.js"></script>
+
+  </body>
+</html>
